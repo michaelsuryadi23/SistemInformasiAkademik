@@ -20,6 +20,15 @@
             </ul>
         </li>
         <li>
+            <a href="#">Dosen<span class="arrow"></span></a>
+            <ul>
+                <li><a href="../dosen/finddosen.jsp">Edit Identitas Dosen</a></li>
+                <li><a href="../dosen/view.jsp">View List Data Dosen</a></li>
+                <li><a href="../dosen/create.jsp">Input Data Dosen Baru</a></li>
+            </ul>
+        </li>
+        
+        <li>
             <a href="#">Akademik<span class="arrow"></span></a>
             <ul>
                 <li><a href="#">Edit Penjadwalan Kuliah</a></li>
