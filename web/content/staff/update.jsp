@@ -37,29 +37,29 @@
             <div id="content-mid">
                 <h2 style="text-align: center; margin-left: 20px;">Create New Staff</h2>
                 <%
-                    int idStaff = Integer.parseInt(request.getParameter("idStaff"));
+                    int idStaff = Integer.parseInt(request.getParameter("nik"));
                     Session sess = HibernateUtil.getSessionFactory().openSession();
-                    List<Staff> listStaff = sess.createQuery("from Staff where idStaff="+idStaff).list();
+                    List<Staff> listStaff = sess.createQuery("from Staff where staffId=" + idStaff).list();
                     Staff staff = listStaff.get(0);
                 %>
-                
+
                 <form action="UpdateStaffServlet" method="GET">
-                    <table>
+                    <table style="margin-left: 150px;">
                         <tr>
                             <td>ID Staff :</td>
-                            <td><input type="text" name="idStaff" value="<%= staff.getStaffId() %>"/></td>
+                            <td><input type="text" name="idStaff" value="<%= staff.getStaffId()%>"/></td>
                         </tr>
                         <tr>
                             <td>Nama Staff : </td>
-                            <td><input type="text" name="nameStaff" value="<%= staff.getStaffName() %>"/></td>
+                            <td><input type="text" name="nameStaff" value="<%= staff.getStaffName()%>"/></td>
                         </tr>
                         <tr>
                             <td>Alamat Staff :</td>
-                            <td><input type="text" name="addressStaff" value="<%= staff.getStaffAddress() %>"/></td>
+                            <td><input type="text" name="addressStaff" value="<%= staff.getStaffAddress()%>"/></td>
                         </tr>
                         <tr>
                             <td>Telp Staff : </td>
-                            <td><input type="text" name="telpStaff" value="<%= staff.getStaffTelp() %>"/></td>
+                            <td><input type="text" name="telpStaff" value="<%= staff.getStaffTelp()%>"/></td>
                         </tr>
                         <tr>
                             <td>Job :</td>
@@ -67,11 +67,13 @@
                                 Session sess2 = HibernateUtil.getSessionFactory().openSession();
                                 List<Jobs> listJobs = sess2.createQuery("from Jobs").list();
                             %>
-                            <td><select name="badanHukumId">
+                            <td><select name="badanHukumId" style="width: 150px">
                                     <%
-                                        for(Jobs o : listJobs){
+                                        for (Jobs o : listJobs) {
                                     %>
-                                    <option value="<%= o.getJobId() %>"><%= o.getJobName() %> <% if(staff.getJobs().getJobId()==o.getJobId()){ out.print("selected='selected'");}%>></option>
+                                    <option value="<%= o.getJobId()%>" <% if (staff.getJobs().getJobId() == o.getJobId()) {
+                                            out.print("selected='selected'");
+                                        }%>><%= o.getJobName()%></option>
                                     <%
                                         }
                                     %>
@@ -81,13 +83,15 @@
                             <td>Badan Hukum :</td>
                             <%
                                 Session sess3 = HibernateUtil.getSessionFactory().openSession();
-                                List<University> listUniv= sess3.createQuery("from University").list();
+                                List<University> listUniv = sess3.createQuery("from University").list();
                             %>
-                            <td><select name="badanHukumId">
+                            <td><select name="badanHukumId" style="width: 150px;">
                                     <%
-                                        for(University o : listUniv){
+                                        for (University o : listUniv) {
                                     %>
-                                    <option value="<%= o.getUnivId()%>" <% if(staff.getUniversity().getUnivId()==o.getUnivId()){ out.print("selected='selected'");} %>></option>
+                                    <option value="<%= o.getUnivId()%>" <% if (staff.getUniversity().getUnivId() == o.getUnivId()) {
+                                            out.print("selected='selected'");
+                                        }%>><%= o.getUnivName()%></option>
                                     <%
                                         }
                                     %>
@@ -106,9 +110,7 @@
             </div>
         </div>
 
-        <div id="footer" style="background-color: black; height: 70px; width: 1000px; margin: auto; text-align: center;">
-
-        </div>
+        <jsp:include page="../footer.jsp.jsp"/>
 
     </body>
 </html>

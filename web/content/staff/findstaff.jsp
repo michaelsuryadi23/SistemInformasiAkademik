@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home - Sistem Informasi Akademik</title>
+        <title>Staff - Sistem Informasi Akademik</title>
         <link rel="stylesheet" type="text/css" href="../../resources/style/home.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/fixedMenu_style2.css"/>
 
@@ -28,15 +28,15 @@
             <div id="content-left">
             </div>
 
-            <div id="content-mid" style="text-align: center;">
-                <h2 style="text-align: center; margin-left: 20px;">Edit Data Mahasiswa</h2>
-                <p>Masukkan nim mahasiswa : </p>
-                <form action="../../MahasiswaServlet" method="get" style="margin-left: 180px;">
+            <div id="content-mid">
+                <h2 style="text-align: center; margin-left: 20px;">Edit Data Staff</h2>
+                <p>Masukkan NIK Staff : </p>
+                <form action="../../StaffServlet" method="get" style="margin-left: 180px;">
                     <table>
                         <tr>
-                            <td>NIM :</td>
-                            <td><input type="text" name="nim" value="<% if(request.getParameter("nim")!=null){ out.print(request.getParameter("nim"));} %>"/></td>
-                            <td><a href="showmahasiswa.jsp?type=1">View List</a></td>
+                            <td>NIK :</td>
+                            <td><input type="text" name="nik" value="<% if(request.getParameter("nik")!=null){ out.print(request.getParameter("nik"));} %>"/></td>
+                            <td><a href="view.jsp?type=1">View List</a></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -45,7 +45,6 @@
                     </table>
                     
                 </form>
-
             </div>
 
             <div id="content-right">
@@ -53,7 +52,9 @@
             </div>
         </div>
 
-<jsp:include page="../footer.jsp"/>
+        <div id="footer" style="background-color: black; height: 70px; width: 1000px; margin: auto; text-align: center;">
+
+        </div>
 
     </body>
 </html>

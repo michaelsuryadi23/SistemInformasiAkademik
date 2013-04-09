@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Michael
  */
-@WebServlet(name = "EditBadanHukumServlet", urlPatterns = {"/EditBadanHukumServlet"})
-public class BadanHukumServlet extends HttpServlet {
+@WebServlet(name = "StaffServlet", urlPatterns = {"/StaffServlet"})
+public class StaffServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -34,10 +34,9 @@ public class BadanHukumServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            int badanHukum = Integer.parseInt(request.getParameter("badanHukum"));
+            int badanHukum = Integer.parseInt(request.getParameter("nik"));
             
-            response.sendRedirect("content/badanhukum/viewbadanhukum.jsp?id="+badanHukum);
-           
+            response.sendRedirect("content/staff/update.jsp?nik="+badanHukum);
         } finally {            
             out.close();
         }

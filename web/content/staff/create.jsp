@@ -36,7 +36,7 @@
             <div id="content-mid">
                 <h2 style="text-align: center; margin-left: 20px;">Create New Staff</h2>
                 <form action="CreateStaffServlet" method="GET">
-                    <table>
+                    <table style="margin-left: 180px;">
                         <tr>
                             <td>ID Staff :</td>
                             <td><input type="text" name="idStaff"/></td>
@@ -59,7 +59,7 @@
                                 Session sess = HibernateUtil.getSessionFactory().openSession();
                                 List<Jobs> listJobs = sess.createQuery("from Jobs").list();
                             %>
-                            <td><select name="jobId">
+                            <td><select name="jobId" style="width: 150px;">
                                     <%
                                         for(Jobs o : listJobs){
                                     %>
@@ -75,7 +75,7 @@
                                 Session sess3 = HibernateUtil.getSessionFactory().openSession();
                                 List<University> listUniv= sess3.createQuery("from University").list();
                             %>
-                            <td><select name="badanHukumId">
+                            <td><select name="badanHukumId" style="width: 150px;">
                                     <%
                                         for(University o : listUniv){
                                     %>

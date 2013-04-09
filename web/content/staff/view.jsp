@@ -4,6 +4,11 @@
     Author     : Michael
 --%>
 
+<%@page import="com.rpll.model.Staff"%>
+<%@page import="java.util.List"%>
+<%@page import="org.hibernate.Session"%>
+<%@page import="com.rpll.util.HibernateUtil"%>
+<%@page import="com.rpll.util.HibernateUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,13 +34,32 @@
             </div>
 
             <div id="content-mid">
-                <h2 style="text-align: center; margin-left: 20px;">Welcome to Academic Information System</h2>
-                <div id="content-mid-left">
+                <h2 style="text-align: center; margin-left: 20px;">View Data Staff</h2>
+                <table style="margin-left: 70px; width: 500px;" border="1">
+                    <thead style="background-color: black; color: white;border: 1px dotted black">
+                        <th>NIK</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>Telp</th>
+                        <th>Opsi</th>
+                    </thead>
+                <%
+                    Session sess = HibernateUtil.getSessionFactory().openSession();
+                    List<Staff> listStaff = sess.createQuery("from Staff").list();
                     
-                </div>
-                <div id="content-mid-right">
-                    
-                </div>
+                    for(Staff o :listStaff){
+                %>
+                <tr>
+                    <td><%= o.getStaffId()%></td>
+                    <td><%= o.getStaffName() %></td>
+                    <td><%= o.getStaffAddress() %></td>
+                    <td><%= o.getStaffTelp() %></td>
+                    <td><a href="findstaff.jsp?nik=<%= o.getStaffId() %>">Pilih</a></td>
+                </tr>
+                <%
+                    }
+                %>
+                </table>
             </div>
 
             <div id="content-right">

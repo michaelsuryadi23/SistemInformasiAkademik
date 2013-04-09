@@ -1,19 +1,22 @@
 <div class="menu">
     <ul>
         <li>
+            <a href="../home/home.jsp">Home</a>
+        </li>
+        <li>
             <a href="#">Mahasiswa<span class="arrow"></span></a>
             <ul>
                 <li><a href="../mahasiswa/editmahasiswa.jsp">Edit Identitas Mahasiswa</a></li>
-                <li><a href="#">View List Data Mahasiswa</a></li>
+                <li><a href="../mahasiswa/showmahasiswa.jsp">View List Data Mahasiswa</a></li>
                 <li><a href="../mahasiswa/inputmahasiswa.jsp">Input Data Mahasiswa Baru</a></li>
             </ul>
         </li>
         <li>
             <a href="#">Staffs<span class="arrow"></span></a>
             <ul>
-                <li><a href="#">Edit Identitas Staff</a></li>
-                <li><a href="#">View List Data Staff</a></li>
-                <li><a href="#">Input Data Staff Baru</a></li>
+                <li><a href="../staff/findstaff.jsp">Edit Identitas Staff</a></li>
+                <li><a href="../staff/view.jsp">View List Data Staff</a></li>
+                <li><a href="../staff/create.jsp">Input Data Staff Baru</a></li>
             </ul>
         </li>
         <li>
@@ -41,7 +44,7 @@
             </ul>
         </li>
         <li>
-            <a href="#">Sign Out<span class="arrow"></span></a>
+            <a href="#">Sign Out</a>
         </li>
         
     </ul>
