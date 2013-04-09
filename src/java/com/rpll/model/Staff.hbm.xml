@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.Staff" table="staff" catalog="sia">
+        <id name="staffId" type="java.lang.Integer">
+            <column name="staff_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="jobs" class="com.rpll.model.Jobs" fetch="select">
+            <column name="job_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="university" class="com.rpll.model.University" fetch="select">
+            <column name="univ_id" not-null="true" />
+        </many-to-one>
+        <property name="staffName" type="string">
+            <column name="staff_name" length="40" not-null="true" />
+        </property>
+        <property name="staffAddress" type="string">
+            <column name="staff_address" length="40" not-null="true" />
+        </property>
+        <property name="staffTelp" type="string">
+            <column name="staff_telp" length="15" not-null="true" />
+        </property>
+        <property name="staffPass" type="string">
+            <column name="staff_pass" length="100" not-null="true" />
+        </property>
+        <set name="announcementses" inverse="true">
+            <key>
+                <column name="id_staff" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Announcements" />
+        </set>
+    </class>
+</hibernate-mapping>

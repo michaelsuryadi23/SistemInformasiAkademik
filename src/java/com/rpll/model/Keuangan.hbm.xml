@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.Keuangan" table="keuangan" catalog="sia">
+        <id name="keuanganId" type="java.lang.Integer">
+            <column name="keuangan_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="students" class="com.rpll.model.Students" fetch="select">
+            <column name="student_id" not-null="true" />
+        </many-to-one>
+        <property name="keuanganDate" type="date">
+            <column name="keuangan_date" length="10" not-null="true" />
+        </property>
+        <property name="laporan" type="string">
+            <column name="laporan" length="50" not-null="true" />
+        </property>
+        <property name="stat" type="int">
+            <column name="stat" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

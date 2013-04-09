@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.Bobot" table="bobot" catalog="sia">
+        <composite-id name="id" class="com.rpll.model.BobotId">
+            <key-property name="lectureId" type="int">
+                <column name="lecture_id" />
+            </key-property>
+            <key-property name="matkulId" type="int">
+                <column name="matkul_id" />
+            </key-property>
+            <key-property name="periodId" type="int">
+                <column name="period_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="matkul" class="com.rpll.model.Matkul" update="false" insert="false" fetch="select">
+            <column name="matkul_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="lectures" class="com.rpll.model.Lectures" update="false" insert="false" fetch="select">
+            <column name="lecture_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="periods" class="com.rpll.model.Periods" update="false" insert="false" fetch="select">
+            <column name="period_id" not-null="true" />
+        </many-to-one>
+        <property name="nilai1" type="double">
+            <column name="nilai1" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="nilai2" type="double">
+            <column name="nilai2" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="nilai3" type="double">
+            <column name="nilai3" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="nilai4" type="double">
+            <column name="nilai4" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="nilai5" type="double">
+            <column name="nilai5" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="uas" type="double">
+            <column name="uas" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+body
+{
+	font-family: calibri;
+	background-image: url('../img/back.jpg');
+	background-position: left;
+}
+
+#header
+{
+	color: white;
+	background-color: black; 
+	height: 100px; 
+	width: 1000px; 
+	margin: auto; 
+	text-align: center;
+}
+
+#header h1
+{
+	margin-top: 0px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+#content
+{
+	height: 480px; 
+	width: 1000px; 
+	margin: auto; 
+	text-align: center;
+}
+
+#content-mid {
+	width: 600px;
+	height: 450px;
+	float:left;
+}
+
+#content-left,#content-right
+{
+	width:200px;
+	height:450px;
+	float:left;
+	
+}
+

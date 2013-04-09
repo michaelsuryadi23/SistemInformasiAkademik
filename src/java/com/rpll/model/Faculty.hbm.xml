@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.Faculty" table="faculty" catalog="sia">
+        <composite-id name="id" class="com.rpll.model.FacultyId">
+            <key-property name="angkatanId" type="int">
+                <column name="angkatan_id" />
+            </key-property>
+            <key-property name="departmentId" type="int">
+                <column name="department_id" />
+            </key-property>
+            <key-property name="univId" type="int">
+                <column name="univ_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="university" class="com.rpll.model.University" update="false" insert="false" fetch="select">
+            <column name="univ_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="angkatan" class="com.rpll.model.Angkatan" update="false" insert="false" fetch="select">
+            <column name="angkatan_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="department" class="com.rpll.model.Department" update="false" insert="false" fetch="select">
+            <column name="department_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

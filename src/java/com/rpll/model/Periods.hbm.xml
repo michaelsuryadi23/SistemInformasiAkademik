@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.Periods" table="periods" catalog="sia">
+        <id name="periodYear" type="java.lang.Integer">
+            <column name="period_year" />
+            <generator class="identity" />
+        </id>
+        <property name="periodDescription" type="string">
+            <column name="period_description" length="10" not-null="true" />
+        </property>
+        <property name="startFrs" type="date">
+            <column name="start_frs" length="10" not-null="true" />
+        </property>
+        <property name="startPrs" type="date">
+            <column name="start_prs" length="10" not-null="true" />
+        </property>
+        <property name="startPayment1" type="date">
+            <column name="start_payment1" length="10" not-null="true" />
+        </property>
+        <property name="startPayment2" type="date">
+            <column name="start_payment2" length="10" not-null="true" />
+        </property>
+        <property name="finishFrs" type="date">
+            <column name="finish_frs" length="10" not-null="true" />
+        </property>
+        <property name="finishPrs" type="date">
+            <column name="finish_prs" length="10" not-null="true" />
+        </property>
+        <property name="finishPayment1" type="date">
+            <column name="finish_payment1" length="10" not-null="true" />
+        </property>
+        <property name="finishPayment2" type="date">
+            <column name="finish_payment2" length="10" not-null="true" />
+        </property>
+        <property name="startSemester" type="date">
+            <column name="start_semester" length="10" not-null="true" />
+        </property>
+        <property name="finishSemester" type="date">
+            <column name="finish_semester" length="10" not-null="true" />
+        </property>
+        <set name="teachPeriods" inverse="true">
+            <key>
+                <column name="period_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.TeachPeriod" />
+        </set>
+        <set name="markses" inverse="true">
+            <key>
+                <column name="period_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Marks" />
+        </set>
+        <set name="takeMatkulPeriods" inverse="true">
+            <key>
+                <column name="period_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.TakeMatkulPeriod" />
+        </set>
+        <set name="classSessions" inverse="true">
+            <key>
+                <column name="period_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.ClassSession" />
+        </set>
+        <set name="bobots" inverse="true">
+            <key>
+                <column name="period_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Bobot" />
+        </set>
+        <set name="absenceses" inverse="true">
+            <key>
+                <column name="period_year" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Absences" />
+        </set>
+    </class>
+</hibernate-mapping>

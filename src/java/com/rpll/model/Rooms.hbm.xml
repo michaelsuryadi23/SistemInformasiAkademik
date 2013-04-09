@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.Rooms" table="rooms" catalog="sia">
+        <id name="roomId" type="int">
+            <column name="room_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="roomType" type="string">
+            <column name="room_type" length="7" not-null="true" />
+        </property>
+        <property name="roomLocation" type="string">
+            <column name="room_location" length="40" not-null="true" />
+        </property>
+        <set name="takeRoomses" inverse="true">
+            <key>
+                <column name="room_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.TakeRooms" />
+        </set>
+    </class>
+</hibernate-mapping>

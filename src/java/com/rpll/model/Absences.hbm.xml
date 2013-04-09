@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.Absences" table="absences" catalog="sia">
+        <composite-id name="id" class="com.rpll.model.AbsencesId">
+            <key-property name="periodYear" type="int">
+                <column name="period_year" />
+            </key-property>
+            <key-property name="studentId" type="int">
+                <column name="student_id" />
+            </key-property>
+            <key-property name="matkulId" type="int">
+                <column name="matkul_id" />
+            </key-property>
+            <key-property name="absenceDate" type="date">
+                <column name="absence_date" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="matkul" class="com.rpll.model.Matkul" update="false" insert="false" fetch="select">
+            <column name="matkul_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="students" class="com.rpll.model.Students" update="false" insert="false" fetch="select">
+            <column name="student_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="periods" class="com.rpll.model.Periods" update="false" insert="false" fetch="select">
+            <column name="period_year" not-null="true" />
+        </many-to-one>
+        <property name="absenceStatus" type="int">
+            <column name="absence_status" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

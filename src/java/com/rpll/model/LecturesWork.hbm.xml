@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.LecturesWork" table="lectures_work" catalog="sia">
+        <composite-id name="id" class="com.rpll.model.LecturesWorkId">
+            <key-property name="lectureId" type="int">
+                <column name="lecture_id" />
+            </key-property>
+            <key-property name="departmentId" type="int">
+                <column name="department_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="lectures" class="com.rpll.model.Lectures" update="false" insert="false" fetch="select">
+            <column name="lecture_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="department" class="com.rpll.model.Department" update="false" insert="false" fetch="select">
+            <column name="department_id" not-null="true" />
+        </many-to-one>
+        <property name="lectureType" type="string">
+            <column name="lecture_type" length="10" not-null="true" />
+        </property>
+        <property name="lectureSalary" type="double">
+            <column name="lecture_salary" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

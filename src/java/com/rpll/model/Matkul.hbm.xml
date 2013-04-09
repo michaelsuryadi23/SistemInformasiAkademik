@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.Matkul" table="matkul" catalog="sia">
+        <id name="matkulId" type="java.lang.Integer">
+            <column name="matkul_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="matkulType" class="com.rpll.model.MatkulType" fetch="select">
+            <column name="matkul_type" not-null="true" />
+        </many-to-one>
+        <property name="matkulName" type="string">
+            <column name="matkul_name" length="20" not-null="true" />
+        </property>
+        <property name="bobotSks" type="int">
+            <column name="bobot_sks" not-null="true" />
+        </property>
+        <set name="markses" inverse="true">
+            <key>
+                <column name="matkul_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Marks" />
+        </set>
+        <set name="teachPeriods" inverse="true">
+            <key>
+                <column name="matkul_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.TeachPeriod" />
+        </set>
+        <set name="takeRoomses" inverse="true">
+            <key>
+                <column name="matkul_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.TakeRooms" />
+        </set>
+        <set name="departments" inverse="false" table="matkul_dept">
+            <key>
+                <column name="matkul_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.rpll.model.Department">
+                <column name="department_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="takeMatkulPeriods" inverse="true">
+            <key>
+                <column name="matkul_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.TakeMatkulPeriod" />
+        </set>
+        <set name="classSessions" inverse="true">
+            <key>
+                <column name="matkul_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.ClassSession" />
+        </set>
+        <set name="bobots" inverse="true">
+            <key>
+                <column name="matkul_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Bobot" />
+        </set>
+        <set name="moduls" inverse="true">
+            <key>
+                <column name="matkul_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Modul" />
+        </set>
+        <set name="absenceses" inverse="true">
+            <key>
+                <column name="matkul_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Absences" />
+        </set>
+    </class>
+</hibernate-mapping>

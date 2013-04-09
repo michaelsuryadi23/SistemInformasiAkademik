@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.University" table="university" catalog="sia">
+        <id name="univId" type="java.lang.Integer">
+            <column name="univ_id" />
+            <generator class="identity" />
+        </id>
+        <property name="univName" type="string">
+            <column name="univ_name" length="30" not-null="true" />
+        </property>
+        <property name="univAddress" type="string">
+            <column name="univ_address" length="50" not-null="true" />
+        </property>
+        <property name="univTelp" type="int">
+            <column name="univ_telp" not-null="true" />
+        </property>
+        <property name="univEmail" type="string">
+            <column name="univ_email" length="30" not-null="true" />
+        </property>
+        <property name="univHomepage" type="string">
+            <column name="univ_homepage" length="30" not-null="true" />
+        </property>
+        <set name="staffs" inverse="true">
+            <key>
+                <column name="univ_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Staff" />
+        </set>
+        <set name="faculties" inverse="true">
+            <key>
+                <column name="univ_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Faculty" />
+        </set>
+    </class>
+</hibernate-mapping>

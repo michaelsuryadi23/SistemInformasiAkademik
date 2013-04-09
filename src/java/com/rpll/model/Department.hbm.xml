@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.Department" table="department" catalog="sia">
+        <id name="departmentId" type="java.lang.Integer">
+            <column name="department_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="lectures" class="com.rpll.model.Lectures" fetch="select">
+            <column name="department_head" />
+        </many-to-one>
+        <property name="departmentName" type="string">
+            <column name="department_name" length="30" not-null="true" />
+        </property>
+        <set name="lecturesWorks" inverse="true">
+            <key>
+                <column name="department_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.LecturesWork" />
+        </set>
+        <set name="announcementses" inverse="true">
+            <key>
+                <column name="department_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Announcements" />
+        </set>
+        <set name="matkuls" inverse="true" table="matkul_dept">
+            <key>
+                <column name="department_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.rpll.model.Matkul">
+                <column name="matkul_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="feeKuliahs" inverse="true">
+            <key>
+                <column name="department_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.FeeKuliah" />
+        </set>
+        <set name="faculties" inverse="true">
+            <key>
+                <column name="department_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Faculty" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.Lectures" table="lectures" catalog="sia">
+        <id name="lectureId" type="java.lang.Integer">
+            <column name="lecture_id" />
+            <generator class="identity" />
+        </id>
+        <property name="lectureName" type="string">
+            <column name="lecture_name" length="30" not-null="true" />
+        </property>
+        <property name="lectureAddress" type="string">
+            <column name="lecture_address" length="50" not-null="true" />
+        </property>
+        <property name="lectureTelp" type="string">
+            <column name="lecture_telp" length="20" not-null="true" />
+        </property>
+        <property name="lectureEmail" type="string">
+            <column name="lecture_email" length="20" not-null="true" />
+        </property>
+        <set name="lecturesWorks" inverse="true">
+            <key>
+                <column name="lecture_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.LecturesWork" />
+        </set>
+        <set name="lecturesEdus" inverse="true">
+            <key>
+                <column name="lecture_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.LecturesEdu" />
+        </set>
+        <set name="studentses" inverse="true">
+            <key>
+                <column name="lecture_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Students" />
+        </set>
+        <set name="teachPeriods" inverse="true">
+            <key>
+                <column name="lecture_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.TeachPeriod" />
+        </set>
+        <set name="takeRoomses" inverse="true">
+            <key>
+                <column name="lecture_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.TakeRooms" />
+        </set>
+        <set name="classSessions" inverse="true">
+            <key>
+                <column name="lecture_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.ClassSession" />
+        </set>
+        <set name="bobots" inverse="true">
+            <key>
+                <column name="lecture_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Bobot" />
+        </set>
+        <set name="departments" inverse="true">
+            <key>
+                <column name="department_head" />
+            </key>
+            <one-to-many class="com.rpll.model.Department" />
+        </set>
+    </class>
+</hibernate-mapping>
