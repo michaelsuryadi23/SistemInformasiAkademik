@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
                 int username= Integer.parseInt(request.getParameter("j_username"));
                 String pass = request.getParameter("j_password");
                 
-                List<Staff> listStaff = session2.createQuery("from Staff where staffId="+username+" and staffPass="+pass).list();
+                List<Staff> listStaff = session2.createQuery("from Staff where staffId='"+username+"' and staffPass='"+pass+"'").list();
                 if(listStaff.size()>0){
                     response.sendRedirect("content/home/home.jsp");
                 }
