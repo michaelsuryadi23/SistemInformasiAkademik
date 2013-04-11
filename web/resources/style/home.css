@@ -1,15 +1,15 @@
 body
 {
 	font-family: calibri;
-	background-image: url('../img/back.jpg');
+        background-color: black;
 	background-position: left;
 }
 
 #header
 {
 	color: white;
-	background-color: black; 
-	height: 100px; 
+	background-image: url('../img/header.jpg'); 
+	height: 150px; 
 	width: 1000px; 
 	margin: auto; 
 	text-align: center;
@@ -28,6 +28,7 @@ body
 	width: 1000px; 
 	margin: auto; 
 	text-align: center;
+        background-image: url('../img/content.jpg');
 }
 
 #content-mid {
@@ -42,4 +43,13 @@ body
 	height:450px;
 	float:left;
 	
+}
+
+#footer
+{
+    background-image: url('../img/footer.jpg');
+    height: 70px; 
+    width: 1000px; 
+    margin: auto; 
+    text-align: center;
 }

@@ -22,7 +22,7 @@
         <li>
             <a href="#">Dosen<span class="arrow"></span></a>
             <ul>
-                <li><a href="../dosen/finddosen.jsp">Edit Identitas Dosen</a></li>
+                <li><a href="../dosen/update.jsp">Edit Identitas Dosen</a></li>
                 <li><a href="../dosen/view.jsp">View List Data Dosen</a></li>
                 <li><a href="../dosen/create.jsp">Input Data Dosen Baru</a></li>
             </ul>
@@ -31,16 +31,19 @@
         <li>
             <a href="#">Akademik<span class="arrow"></span></a>
             <ul>
-                <li><a href="#">Edit Penjadwalan Kuliah</a></li>
-                <li><a href="#">Edit Pembagian Kelas Mahasiswa</a></li>
-                <li><a href="#">Edit Kurikulum Departemen</a></li>
-                <li><a href="#">Input dan Edit Pengumuman</a></li>
-                <li><a href="#">View dan Cetak Transkrip Mahasiswa</a></li>                
+                <li><a href="../jadwalkuliah/edit.jsp">Edit Penjadwalan Kuliah</a></li>
+                <li><a href="../jadwalkuliah/edit.jsp">Assign Dosen Matakuliah</a></li>
+                <li><a href="../bagikelas/edit.jsp">Edit Pembagian Kelas Mahasiswa</a></li>
+                <li><a href="../kurikulum/edit.jsp">Edit Kurikulum Departemen</a></li>
+                <li><a href="../pengumuman/edit.jsp">Input dan Edit Pengumuman</a></li>
+                <li><a href="../transkrip/view1.jsp">View dan Cetak Transkrip 1 Mahasiswa</a></li>                
+                <li><a href="../transkrip/view2.jsp">View dan Cetak Transkrip 2 Mahasiswa</a></li>                
             </ul>
         </li>
         <li>
             <a href="#">Badan Hukum<span class="arrow"></span></a>
             <ul>
+                <li><a href="../badanhukum/create.jsp">Create Badan Hukum</a></li>
                 <li><a href="../badanhukum/editbadanhukum.jsp">Edit Badan Hukum</a></li>
                 <li><a href="#">View List Badan Hukum</a></li>                
             </ul>
@@ -57,6 +60,4 @@
         </li>
         
     </ul>
-    
-    
 </div>

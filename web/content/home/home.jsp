@@ -26,17 +26,9 @@
         <jsp:include page="../header.jsp"/>
         <div id="content">
             <jsp:include page="../sidemenu.jsp" />
+            <h2 style="text-align: center; margin-left: 20px;">Selamat Datang di Layanan Staff</h2>
             <div id="content-left">
-            </div>
-
-            <div id="content-mid">
-                <h2 style="text-align: center; margin-left: 20px;">Welcome to Academic Information System</h2>
-                <div id="content-mid-left">
-                    
-                </div>
-                <div id="content-mid-right">
-
-                </div>
+                
             </div>
 
             <div id="content-right">
