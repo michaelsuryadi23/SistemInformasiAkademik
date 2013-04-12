@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Apr 12, 2013 9:26:31 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.rpll.model.ClassSession" table="class_session" catalog="sia">
         <composite-id name="id" class="com.rpll.model.ClassSessionId">
@@ -17,8 +17,8 @@
             <key-property name="date" type="date">
                 <column name="date" length="10" />
             </key-property>
-            <key-property name="time" type="date">
-                <column name="time" length="10" />
+            <key-property name="time" type="time">
+                <column name="time" length="8" />
             </key-property>
         </composite-id>
         <many-to-one name="matkul" class="com.rpll.model.Matkul" update="false" insert="false" fetch="select">

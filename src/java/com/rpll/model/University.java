@@ -1,7 +1,8 @@
 package com.rpll.model;
-// Generated Apr 8, 2013 1:49:51 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 12, 2013 9:26:29 PM by Hibernate Tools 3.2.1.GA
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,9 +15,13 @@ public class University  implements java.io.Serializable {
      private Integer univId;
      private String univName;
      private String univAddress;
-     private int univTelp;
+     private String univTelp;
      private String univEmail;
      private String univHomepage;
+     private int noAkreditasi;
+     private String akreditasi;
+     private Date foundDate;
+     private String rector;
      private Set<Staff> staffs = new HashSet<Staff>(0);
      private Set<Faculty> faculties = new HashSet<Faculty>(0);
 
@@ -24,19 +29,27 @@ public class University  implements java.io.Serializable {
     }
 
 	
-    public University(String univName, String univAddress, int univTelp, String univEmail, String univHomepage) {
+    public University(String univName, String univAddress, String univTelp, String univEmail, String univHomepage, int noAkreditasi, String akreditasi, Date foundDate, String rector) {
         this.univName = univName;
         this.univAddress = univAddress;
         this.univTelp = univTelp;
         this.univEmail = univEmail;
         this.univHomepage = univHomepage;
+        this.noAkreditasi = noAkreditasi;
+        this.akreditasi = akreditasi;
+        this.foundDate = foundDate;
+        this.rector = rector;
     }
-    public University(String univName, String univAddress, int univTelp, String univEmail, String univHomepage, Set<Staff> staffs, Set<Faculty> faculties) {
+    public University(String univName, String univAddress, String univTelp, String univEmail, String univHomepage, int noAkreditasi, String akreditasi, Date foundDate, String rector, Set<Staff> staffs, Set<Faculty> faculties) {
        this.univName = univName;
        this.univAddress = univAddress;
        this.univTelp = univTelp;
        this.univEmail = univEmail;
        this.univHomepage = univHomepage;
+       this.noAkreditasi = noAkreditasi;
+       this.akreditasi = akreditasi;
+       this.foundDate = foundDate;
+       this.rector = rector;
        this.staffs = staffs;
        this.faculties = faculties;
     }
@@ -62,11 +75,11 @@ public class University  implements java.io.Serializable {
     public void setUnivAddress(String univAddress) {
         this.univAddress = univAddress;
     }
-    public int getUnivTelp() {
+    public String getUnivTelp() {
         return this.univTelp;
     }
     
-    public void setUnivTelp(int univTelp) {
+    public void setUnivTelp(String univTelp) {
         this.univTelp = univTelp;
     }
     public String getUnivEmail() {
@@ -82,6 +95,34 @@ public class University  implements java.io.Serializable {
     
     public void setUnivHomepage(String univHomepage) {
         this.univHomepage = univHomepage;
+    }
+    public int getNoAkreditasi() {
+        return this.noAkreditasi;
+    }
+    
+    public void setNoAkreditasi(int noAkreditasi) {
+        this.noAkreditasi = noAkreditasi;
+    }
+    public String getAkreditasi() {
+        return this.akreditasi;
+    }
+    
+    public void setAkreditasi(String akreditasi) {
+        this.akreditasi = akreditasi;
+    }
+    public Date getFoundDate() {
+        return this.foundDate;
+    }
+    
+    public void setFoundDate(Date foundDate) {
+        this.foundDate = foundDate;
+    }
+    public String getRector() {
+        return this.rector;
+    }
+    
+    public void setRector(String rector) {
+        this.rector = rector;
     }
     public Set<Staff> getStaffs() {
         return this.staffs;

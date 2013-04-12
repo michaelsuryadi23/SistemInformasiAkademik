@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Apr 12, 2013 9:26:31 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.rpll.model.Announcements" table="announcements" catalog="sia">
         <id name="annId" type="java.lang.Integer">
@@ -18,7 +18,7 @@
             <column name="date_post" length="10" not-null="true" />
         </property>
         <property name="content" type="string">
-            <column name="content" not-null="true" />
+            <column name="content" length="65535" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

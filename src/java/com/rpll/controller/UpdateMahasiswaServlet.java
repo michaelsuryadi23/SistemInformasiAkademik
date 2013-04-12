@@ -51,14 +51,16 @@ public class UpdateMahasiswaServlet extends HttpServlet {
             List<Lectures> listLecture = sess.createQuery("from Lectures where lectureId="+dosenwali).list();
             Lectures lecture = listLecture.get(0);
             
-            Students student = new Students(nim, lecture, nama, alamat, telp, email, status);
             
-            Session sess2 = HibernateUtil.getSessionFactory().openSession();
-            sess2.beginTransaction();
-            sess2.update(student);
-            sess2.getTransaction().commit();
             
-            sess2.close();
+//            Students student = new Students(nim, lecture, nama, alamat, telp, email, status);
+//            
+//            Session sess2 = HibernateUtil.getSessionFactory().openSession();
+//            sess2.beginTransaction();
+//            sess2.update(student);
+//            sess2.getTransaction().commit();
+            
+//            sess2.close();
             
             response.sendRedirect("content/mahasiswa/showmahasiswa.jsp");
             

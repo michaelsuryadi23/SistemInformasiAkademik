@@ -44,8 +44,7 @@
             <a href="#">Badan Hukum<span class="arrow"></span></a>
             <ul>
                 <li><a href="../badanhukum/create.jsp">Create Badan Hukum</a></li>
-                <li><a href="../badanhukum/editbadanhukum.jsp">Edit Badan Hukum</a></li>
-                <li><a href="#">View List Badan Hukum</a></li>                
+                <li><a href="../badanhukum/list.jsp">View & Edit Badan Hukum</a></li>                
             </ul>
         </li>
         <li>

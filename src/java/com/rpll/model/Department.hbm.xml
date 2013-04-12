@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 8, 2013 1:49:52 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Apr 12, 2013 9:26:31 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.rpll.model.Department" table="department" catalog="sia">
         <id name="departmentId" type="java.lang.Integer">
@@ -33,6 +33,12 @@
             <many-to-many entity-name="com.rpll.model.Matkul">
                 <column name="matkul_id" not-null="true" />
             </many-to-many>
+        </set>
+        <set name="studentses" inverse="true">
+            <key>
+                <column name="dept_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.Students" />
         </set>
         <set name="feeKuliahs" inverse="true">
             <key>

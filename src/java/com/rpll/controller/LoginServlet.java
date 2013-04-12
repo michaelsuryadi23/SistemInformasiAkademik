@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.hibernate.Session;
 
 /**
@@ -46,6 +47,9 @@ public class LoginServlet extends HttpServlet {
                 
                 List<Staff> listStaff = session2.createQuery("from Staff where staffId='"+username+"' and staffPass='"+pass+"'").list();
                 if(listStaff.size()>0){
+                    HttpSession sess = request.getSession();
+                    sess.setAttribute("username", listStaff.get(0).getStaffId());
+                    sess.setAttribute("jabatan", listStaff.get(0).getJobs().getJobName());
                     response.sendRedirect("content/home/home.jsp");
                 }
        

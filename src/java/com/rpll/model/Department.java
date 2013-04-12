@@ -1,5 +1,5 @@
 package com.rpll.model;
-// Generated Apr 8, 2013 1:49:51 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 12, 2013 9:26:29 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -17,6 +17,7 @@ public class Department  implements java.io.Serializable {
      private Set<LecturesWork> lecturesWorks = new HashSet<LecturesWork>(0);
      private Set<Announcements> announcementses = new HashSet<Announcements>(0);
      private Set<Matkul> matkuls = new HashSet<Matkul>(0);
+     private Set<Students> studentses = new HashSet<Students>(0);
      private Set<FeeKuliah> feeKuliahs = new HashSet<FeeKuliah>(0);
      private Set<Faculty> faculties = new HashSet<Faculty>(0);
 
@@ -27,12 +28,13 @@ public class Department  implements java.io.Serializable {
     public Department(String departmentName) {
         this.departmentName = departmentName;
     }
-    public Department(Lectures lectures, String departmentName, Set<LecturesWork> lecturesWorks, Set<Announcements> announcementses, Set<Matkul> matkuls, Set<FeeKuliah> feeKuliahs, Set<Faculty> faculties) {
+    public Department(Lectures lectures, String departmentName, Set<LecturesWork> lecturesWorks, Set<Announcements> announcementses, Set<Matkul> matkuls, Set<Students> studentses, Set<FeeKuliah> feeKuliahs, Set<Faculty> faculties) {
        this.lectures = lectures;
        this.departmentName = departmentName;
        this.lecturesWorks = lecturesWorks;
        this.announcementses = announcementses;
        this.matkuls = matkuls;
+       this.studentses = studentses;
        this.feeKuliahs = feeKuliahs;
        this.faculties = faculties;
     }
@@ -78,6 +80,13 @@ public class Department  implements java.io.Serializable {
     
     public void setMatkuls(Set<Matkul> matkuls) {
         this.matkuls = matkuls;
+    }
+    public Set<Students> getStudentses() {
+        return this.studentses;
+    }
+    
+    public void setStudentses(Set<Students> studentses) {
+        this.studentses = studentses;
     }
     public Set<FeeKuliah> getFeeKuliahs() {
         return this.feeKuliahs;

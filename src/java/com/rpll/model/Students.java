@@ -1,5 +1,5 @@
 package com.rpll.model;
-// Generated Apr 8, 2013 1:49:51 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 12, 2013 9:26:29 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -13,6 +13,7 @@ public class Students  implements java.io.Serializable {
 
      private int studentId;
      private Lectures lectures;
+     private Department department;
      private String studentName;
      private String studentAddress;
      private int studentTelp;
@@ -27,18 +28,20 @@ public class Students  implements java.io.Serializable {
     }
 
 	
-    public Students(int studentId, Lectures lectures, String studentName, String studentAddress, int studentTelp, String studentEmail, int studentStatus) {
+    public Students(int studentId, Lectures lectures, Department department, String studentName, String studentAddress, int studentTelp, String studentEmail, int studentStatus) {
         this.studentId = studentId;
         this.lectures = lectures;
+        this.department = department;
         this.studentName = studentName;
         this.studentAddress = studentAddress;
         this.studentTelp = studentTelp;
         this.studentEmail = studentEmail;
         this.studentStatus = studentStatus;
     }
-    public Students(int studentId, Lectures lectures, String studentName, String studentAddress, int studentTelp, String studentEmail, int studentStatus, Set<Marks> markses, Set<Keuangan> keuangans, Set<Absences> absenceses, Set<TakeMatkulPeriod> takeMatkulPeriods) {
+    public Students(int studentId, Lectures lectures, Department department, String studentName, String studentAddress, int studentTelp, String studentEmail, int studentStatus, Set<Marks> markses, Set<Keuangan> keuangans, Set<Absences> absenceses, Set<TakeMatkulPeriod> takeMatkulPeriods) {
        this.studentId = studentId;
        this.lectures = lectures;
+       this.department = department;
        this.studentName = studentName;
        this.studentAddress = studentAddress;
        this.studentTelp = studentTelp;
@@ -63,6 +66,13 @@ public class Students  implements java.io.Serializable {
     
     public void setLectures(Lectures lectures) {
         this.lectures = lectures;
+    }
+    public Department getDepartment() {
+        return this.department;
+    }
+    
+    public void setDepartment(Department department) {
+        this.department = department;
     }
     public String getStudentName() {
         return this.studentName;

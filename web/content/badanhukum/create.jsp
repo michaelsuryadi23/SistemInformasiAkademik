@@ -27,8 +27,9 @@
         
         <div id="content">
             <jsp:include page="../sidemenu.jsp"/>
+            <jsp:include page="privilage.jsp"/>
             <h2 style="text-align: center; margin-left: 20px; padding-top: 10px;">Input Badan Hukum</h2>
-            <form name='f' action="LoginServlet?loginattempt=1" method='POST'>
+            <form name='f' action="BadanHukumServlet?mode=1" method='POST'>
                 <div id="content-left" style="margin-left: 300px; width: 400px;">
                     <fieldset>
                         <table>
@@ -57,6 +58,10 @@
                             </tr>
                             <tr>
                                 <td> <label for="username">No Akreditasi : </label></td>
+                                <td><input type="text" name="univNoAkreditasi" style="height: 20px; width: 200px"></td>
+                            </tr>
+                            <tr>
+                                <td> <label for="username">Akreditasi : </label></td>
                                 <td><input type="text" name="univAkreditasi" style="height: 20px; width: 200px"></td>
                             </tr>
                             <tr>
