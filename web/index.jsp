@@ -33,13 +33,13 @@
                                     <td><label for="username">Username : </label></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="text" name="j_username" style="height: 30px;"></td>
+                                    <td><input type="text" name="j_username" style="text-align: center; height: 30px;"></td>
                                 </tr>
                                 <tr>
                                     <td><label for="username">Password : </label></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="password" name="j_password" style="height: 30px;"></td>
+                                    <td><input type="password" name="j_password" style="height: 30px; text-align: center;"></td>
                                 </tr>
                                 <tr>
                                     <td><input type="submit" value="Sign In" style="width: 100px;"/></td>

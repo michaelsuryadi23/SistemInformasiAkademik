@@ -26,6 +26,7 @@
 
     <body>
         <jsp:include page="../header.jsp"/>
+        <jsp:include page="privilage.jsp"/>
         <div id="content">
             <jsp:include page="../sidemenu.jsp" />
             <div id="content-left">

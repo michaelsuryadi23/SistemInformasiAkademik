@@ -1,17 +1,10 @@
-<%-- 
-    Document   : privilage
-    Created on : Apr 12, 2013, 10:26:10 PM
-    Author     : Michael
---%>
+<%
+    if (session.getAttribute("jabatan") != null) {
+        String jabatan = session.getAttribute("jabatan").toString();
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+        if (jabatan.equals("keuangan") || jabatan.equals("mahasiswa")) {
+            out.print("<script>alert('Anda Tidak bisa masuk ke modul ini');"
+                    + "window.location='../../index.jsp';</script>");
+        }
+    }
+%>

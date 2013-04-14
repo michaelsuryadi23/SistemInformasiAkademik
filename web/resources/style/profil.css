@@ -1,0 +1,18 @@
+/* 
+    Document   : profil
+    Created on : Apr 13, 2013, 8:44:37 PM
+    Author     : Michael
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#content-stu-left,#content-stu-right {
+    width: 500px;
+    height: 480px;
+    float: left;
+}
+

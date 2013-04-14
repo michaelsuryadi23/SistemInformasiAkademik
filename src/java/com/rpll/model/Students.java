@@ -1,5 +1,5 @@
 package com.rpll.model;
-// Generated Apr 12, 2013 9:26:29 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 13, 2013 8:51:10 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -19,16 +19,18 @@ public class Students  implements java.io.Serializable {
      private int studentTelp;
      private String studentEmail;
      private int studentStatus;
-     private Set<Marks> markses = new HashSet<Marks>(0);
-     private Set<Keuangan> keuangans = new HashSet<Keuangan>(0);
-     private Set<Absences> absenceses = new HashSet<Absences>(0);
-     private Set<TakeMatkulPeriod> takeMatkulPeriods = new HashSet<TakeMatkulPeriod>(0);
+     private String studentPass;
+     private Set markses = new HashSet(0);
+     private Set studentAngkatans = new HashSet(0);
+     private Set keuangans = new HashSet(0);
+     private Set absenceses = new HashSet(0);
+     private Set takeMatkulPeriods = new HashSet(0);
 
     public Students() {
     }
 
 	
-    public Students(int studentId, Lectures lectures, Department department, String studentName, String studentAddress, int studentTelp, String studentEmail, int studentStatus) {
+    public Students(int studentId, Lectures lectures, Department department, String studentName, String studentAddress, int studentTelp, String studentEmail, int studentStatus, String studentPass) {
         this.studentId = studentId;
         this.lectures = lectures;
         this.department = department;
@@ -37,8 +39,9 @@ public class Students  implements java.io.Serializable {
         this.studentTelp = studentTelp;
         this.studentEmail = studentEmail;
         this.studentStatus = studentStatus;
+        this.studentPass = studentPass;
     }
-    public Students(int studentId, Lectures lectures, Department department, String studentName, String studentAddress, int studentTelp, String studentEmail, int studentStatus, Set<Marks> markses, Set<Keuangan> keuangans, Set<Absences> absenceses, Set<TakeMatkulPeriod> takeMatkulPeriods) {
+    public Students(int studentId, Lectures lectures, Department department, String studentName, String studentAddress, int studentTelp, String studentEmail, int studentStatus, String studentPass, Set markses, Set studentAngkatans, Set keuangans, Set absenceses, Set takeMatkulPeriods) {
        this.studentId = studentId;
        this.lectures = lectures;
        this.department = department;
@@ -47,7 +50,9 @@ public class Students  implements java.io.Serializable {
        this.studentTelp = studentTelp;
        this.studentEmail = studentEmail;
        this.studentStatus = studentStatus;
+       this.studentPass = studentPass;
        this.markses = markses;
+       this.studentAngkatans = studentAngkatans;
        this.keuangans = keuangans;
        this.absenceses = absenceses;
        this.takeMatkulPeriods = takeMatkulPeriods;
@@ -109,32 +114,46 @@ public class Students  implements java.io.Serializable {
     public void setStudentStatus(int studentStatus) {
         this.studentStatus = studentStatus;
     }
-    public Set<Marks> getMarkses() {
+    public String getStudentPass() {
+        return this.studentPass;
+    }
+    
+    public void setStudentPass(String studentPass) {
+        this.studentPass = studentPass;
+    }
+    public Set getMarkses() {
         return this.markses;
     }
     
-    public void setMarkses(Set<Marks> markses) {
+    public void setMarkses(Set markses) {
         this.markses = markses;
     }
-    public Set<Keuangan> getKeuangans() {
+    public Set getStudentAngkatans() {
+        return this.studentAngkatans;
+    }
+    
+    public void setStudentAngkatans(Set studentAngkatans) {
+        this.studentAngkatans = studentAngkatans;
+    }
+    public Set getKeuangans() {
         return this.keuangans;
     }
     
-    public void setKeuangans(Set<Keuangan> keuangans) {
+    public void setKeuangans(Set keuangans) {
         this.keuangans = keuangans;
     }
-    public Set<Absences> getAbsenceses() {
+    public Set getAbsenceses() {
         return this.absenceses;
     }
     
-    public void setAbsenceses(Set<Absences> absenceses) {
+    public void setAbsenceses(Set absenceses) {
         this.absenceses = absenceses;
     }
-    public Set<TakeMatkulPeriod> getTakeMatkulPeriods() {
+    public Set getTakeMatkulPeriods() {
         return this.takeMatkulPeriods;
     }
     
-    public void setTakeMatkulPeriods(Set<TakeMatkulPeriod> takeMatkulPeriods) {
+    public void setTakeMatkulPeriods(Set takeMatkulPeriods) {
         this.takeMatkulPeriods = takeMatkulPeriods;
     }
 

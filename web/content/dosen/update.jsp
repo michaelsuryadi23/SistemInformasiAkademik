@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Update Dosen - Sistem Informasi Akademik</title>
+        <title>Create New Dosen - Sistem Informasi Akademik</title>
         <link rel="stylesheet" type="text/css" href="../../resources/style/home.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/home2.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/fixedMenu_style2.css"/>
@@ -26,6 +26,8 @@
 
     <body>
         <jsp:include page="../header.jsp"/>
+        <jsp:include page="privilage.jsp"/>
+        
         <div id="content">
             <jsp:include page="../sidemenu.jsp" />
             <div id="content-left">

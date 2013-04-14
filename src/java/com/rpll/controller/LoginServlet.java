@@ -5,6 +5,7 @@
 package com.rpll.controller;
 
 import com.rpll.model.Staff;
+import com.rpll.model.Students;
 import com.rpll.util.HibernateUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,22 +40,30 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-           if(request.getParameter("loginattempt")!= null && request.getParameter("loginattempt").equals("1")){
+            if (request.getParameter("loginattempt") != null && request.getParameter("loginattempt").equals("1")) {
                 Session session2 = HibernateUtil.getSessionFactory().openSession();
-                
-                int username= Integer.parseInt(request.getParameter("j_username"));
+
+                int username = Integer.parseInt(request.getParameter("j_username"));
                 String pass = request.getParameter("j_password");
-                
-                List<Staff> listStaff = session2.createQuery("from Staff where staffId='"+username+"' and staffPass='"+pass+"'").list();
-                if(listStaff.size()>0){
+
+                List<Staff> listStaff = session2.createQuery("from Staff where staffId='" + username + "' and staffPass='" + pass + "'").list();
+                if (listStaff.size() > 0) {
                     HttpSession sess = request.getSession();
                     sess.setAttribute("username", listStaff.get(0).getStaffId());
                     sess.setAttribute("jabatan", listStaff.get(0).getJobs().getJobName());
                     response.sendRedirect("content/home/home.jsp");
+                } else {
+                    List<Students> listStudent = session2.createQuery("from Students where studentId=" + username + " and studentPass='" + pass + "'").list();
+
+                    if (listStudent.size() > 0) {
+                        HttpSession sess = request.getSession();
+                        sess.setAttribute("username", listStudent.get(0).getStudentId());
+                        sess.setAttribute("jabatan", "student");
+                        response.sendRedirect("content/home/homestudent.jsp");
+                    }
                 }
-       
             }
-        } finally {            
+        } finally {
             out.close();
         }
     }

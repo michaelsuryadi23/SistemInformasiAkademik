@@ -1,5 +1,5 @@
 package com.rpll.model;
-// Generated Apr 12, 2013 9:26:29 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 13, 2013 8:51:10 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -14,7 +14,7 @@ public class Rooms  implements java.io.Serializable {
      private int roomId;
      private String roomType;
      private String roomLocation;
-     private Set<TakeRooms> takeRoomses = new HashSet<TakeRooms>(0);
+     private Set takeRoomses = new HashSet(0);
 
     public Rooms() {
     }
@@ -25,7 +25,7 @@ public class Rooms  implements java.io.Serializable {
         this.roomType = roomType;
         this.roomLocation = roomLocation;
     }
-    public Rooms(int roomId, String roomType, String roomLocation, Set<TakeRooms> takeRoomses) {
+    public Rooms(int roomId, String roomType, String roomLocation, Set takeRoomses) {
        this.roomId = roomId;
        this.roomType = roomType;
        this.roomLocation = roomLocation;
@@ -53,11 +53,11 @@ public class Rooms  implements java.io.Serializable {
     public void setRoomLocation(String roomLocation) {
         this.roomLocation = roomLocation;
     }
-    public Set<TakeRooms> getTakeRoomses() {
+    public Set getTakeRoomses() {
         return this.takeRoomses;
     }
     
-    public void setTakeRoomses(Set<TakeRooms> takeRoomses) {
+    public void setTakeRoomses(Set takeRoomses) {
         this.takeRoomses = takeRoomses;
     }
 

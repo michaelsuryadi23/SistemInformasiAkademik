@@ -7,12 +7,12 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sia?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <mapping resource="com/rpll/model/Periods.hbm.xml"/>
-    <mapping resource="com/rpll/model/MatkulType.hbm.xml"/>
     <mapping resource="com/rpll/model/Modul.hbm.xml"/>
-    <mapping resource="com/rpll/model/Department.hbm.xml"/>
+    <mapping resource="com/rpll/model/MatkulType.hbm.xml"/>
     <mapping resource="com/rpll/model/Matkul.hbm.xml"/>
-    <mapping resource="com/rpll/model/ClassSession.hbm.xml"/>
+    <mapping resource="com/rpll/model/Department.hbm.xml"/>
     <mapping resource="com/rpll/model/Keuangan.hbm.xml"/>
+    <mapping resource="com/rpll/model/ClassSession.hbm.xml"/>
     <mapping resource="com/rpll/model/Jobs.hbm.xml"/>
     <mapping resource="com/rpll/model/TeachPeriod.hbm.xml"/>
     <mapping resource="com/rpll/model/TakeRooms.hbm.xml"/>
@@ -29,6 +29,7 @@
     <mapping resource="com/rpll/model/Faculty.hbm.xml"/>
     <mapping resource="com/rpll/model/Marks.hbm.xml"/>
     <mapping resource="com/rpll/model/Students.hbm.xml"/>
+    <mapping resource="com/rpll/model/StudentAngkatan.hbm.xml"/>
     <mapping resource="com/rpll/model/TakeMatkulPeriod.hbm.xml"/>
     <mapping resource="com/rpll/model/FeeKuliah.hbm.xml"/>
   </session-factory>

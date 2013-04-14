@@ -1,5 +1,5 @@
 package com.rpll.model;
-// Generated Apr 12, 2013 9:26:29 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 13, 2013 8:51:10 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -16,14 +16,14 @@ public class Lectures  implements java.io.Serializable {
      private String lectureAddress;
      private String lectureTelp;
      private String lectureEmail;
-     private Set<LecturesWork> lecturesWorks = new HashSet<LecturesWork>(0);
-     private Set<LecturesEdu> lecturesEdus = new HashSet<LecturesEdu>(0);
-     private Set<Students> studentses = new HashSet<Students>(0);
-     private Set<TeachPeriod> teachPeriods = new HashSet<TeachPeriod>(0);
-     private Set<TakeRooms> takeRoomses = new HashSet<TakeRooms>(0);
-     private Set<ClassSession> classSessions = new HashSet<ClassSession>(0);
-     private Set<Bobot> bobots = new HashSet<Bobot>(0);
-     private Set<Department> departments = new HashSet<Department>(0);
+     private Set lecturesWorks = new HashSet(0);
+     private Set lecturesEdus = new HashSet(0);
+     private Set studentses = new HashSet(0);
+     private Set teachPeriods = new HashSet(0);
+     private Set takeRoomses = new HashSet(0);
+     private Set classSessions = new HashSet(0);
+     private Set bobots = new HashSet(0);
+     private Set departments = new HashSet(0);
 
     public Lectures() {
     }
@@ -35,7 +35,7 @@ public class Lectures  implements java.io.Serializable {
         this.lectureTelp = lectureTelp;
         this.lectureEmail = lectureEmail;
     }
-    public Lectures(String lectureName, String lectureAddress, String lectureTelp, String lectureEmail, Set<LecturesWork> lecturesWorks, Set<LecturesEdu> lecturesEdus, Set<Students> studentses, Set<TeachPeriod> teachPeriods, Set<TakeRooms> takeRoomses, Set<ClassSession> classSessions, Set<Bobot> bobots, Set<Department> departments) {
+    public Lectures(String lectureName, String lectureAddress, String lectureTelp, String lectureEmail, Set lecturesWorks, Set lecturesEdus, Set studentses, Set teachPeriods, Set takeRoomses, Set classSessions, Set bobots, Set departments) {
        this.lectureName = lectureName;
        this.lectureAddress = lectureAddress;
        this.lectureTelp = lectureTelp;
@@ -85,60 +85,60 @@ public class Lectures  implements java.io.Serializable {
     public void setLectureEmail(String lectureEmail) {
         this.lectureEmail = lectureEmail;
     }
-    public Set<LecturesWork> getLecturesWorks() {
+    public Set getLecturesWorks() {
         return this.lecturesWorks;
     }
     
-    public void setLecturesWorks(Set<LecturesWork> lecturesWorks) {
+    public void setLecturesWorks(Set lecturesWorks) {
         this.lecturesWorks = lecturesWorks;
     }
-    public Set<LecturesEdu> getLecturesEdus() {
+    public Set getLecturesEdus() {
         return this.lecturesEdus;
     }
     
-    public void setLecturesEdus(Set<LecturesEdu> lecturesEdus) {
+    public void setLecturesEdus(Set lecturesEdus) {
         this.lecturesEdus = lecturesEdus;
     }
-    public Set<Students> getStudentses() {
+    public Set getStudentses() {
         return this.studentses;
     }
     
-    public void setStudentses(Set<Students> studentses) {
+    public void setStudentses(Set studentses) {
         this.studentses = studentses;
     }
-    public Set<TeachPeriod> getTeachPeriods() {
+    public Set getTeachPeriods() {
         return this.teachPeriods;
     }
     
-    public void setTeachPeriods(Set<TeachPeriod> teachPeriods) {
+    public void setTeachPeriods(Set teachPeriods) {
         this.teachPeriods = teachPeriods;
     }
-    public Set<TakeRooms> getTakeRoomses() {
+    public Set getTakeRoomses() {
         return this.takeRoomses;
     }
     
-    public void setTakeRoomses(Set<TakeRooms> takeRoomses) {
+    public void setTakeRoomses(Set takeRoomses) {
         this.takeRoomses = takeRoomses;
     }
-    public Set<ClassSession> getClassSessions() {
+    public Set getClassSessions() {
         return this.classSessions;
     }
     
-    public void setClassSessions(Set<ClassSession> classSessions) {
+    public void setClassSessions(Set classSessions) {
         this.classSessions = classSessions;
     }
-    public Set<Bobot> getBobots() {
+    public Set getBobots() {
         return this.bobots;
     }
     
-    public void setBobots(Set<Bobot> bobots) {
+    public void setBobots(Set bobots) {
         this.bobots = bobots;
     }
-    public Set<Department> getDepartments() {
+    public Set getDepartments() {
         return this.departments;
     }
     
-    public void setDepartments(Set<Department> departments) {
+    public void setDepartments(Set departments) {
         this.departments = departments;
     }
 
