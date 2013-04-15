@@ -4,6 +4,11 @@
     Author     : Michael
 --%>
 
+<%@page import="com.rpll.model.Jobs"%>
+<%@page import="java.util.List"%>
+<%@page import="com.rpll.model.Staff"%>
+<%@page import="com.rpll.util.HibernateUtil"%>
+<%@page import="org.hibernate.Session"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,18 +29,33 @@
 
     <body>
         <jsp:include page="../header.jsp"/>
-        <jsp:include page="privilage.jsp"/>
-        
-        
         <div id="content">
             <jsp:include page="../sidemenu.jsp" />
             <h2 style="text-align: center; margin-left: 20px;">Selamat Datang di Layanan Staff</h2>
-            <div id="content-left">
-                
+            <div id="content-left" style="text-align: left">
+                <h4 style="margin-left: 30px">Layanan untuk Staff antara lain :</h4>
+                <ul>Insert, Update, Delete Data Mahasiswa</ul>
+                <ul>Insert, Update, Delete Data Dosen</ul>
+                <ul>Insert, Update, Delete Data Staff</ul>
+                <ul>Insert, Update, Delete Data Badan Hukum</ul>
+                <ul>Create Pengumuman</ul>
+                <ul>Create Jadwal Perkuliahan</ul>
+                <ul>Edit Kurikulum Departemen</ul>
             </div>
 
-            <div id="content-right">
-                
+            <div id="content-right" style="text-align: left">
+                <%                    
+                    int staffID = Integer.parseInt(session.getAttribute("username").toString());
+                    Session sesStaff = HibernateUtil.getSessionFactory().openSession();
+                    List<Staff> listStaff = sesStaff.createQuery("from Staff where staffId=" + staffID + "").list();
+                    Staff staff = listStaff.get(0);
+                %>
+                <h4>Your Account</h4>
+                <pre>
+                NIK     : <%= staff.getStaffId()%>
+                Nama    : <%= staff.getStaffName()%>
+                Jabatan : <%= staff.getJobs().getJobName()%>
+                </pre>
             </div>
         </div>
 

@@ -4,6 +4,7 @@
  */
 package com.rpll.controller;
 
+import com.rpll.model.Lectures;
 import com.rpll.model.Staff;
 import com.rpll.model.Students;
 import com.rpll.util.HibernateUtil;
@@ -60,6 +61,10 @@ public class LoginServlet extends HttpServlet {
                         sess.setAttribute("username", listStudent.get(0).getStudentId());
                         sess.setAttribute("jabatan", "student");
                         response.sendRedirect("content/home/homestudent.jsp");
+                    }
+                    else {
+                        List<Lectures> listLecture = session2.createQuery("from Lectures where lectureId="+username+" and lecturePass="+pass).list();
+                        
                     }
                 }
             }

@@ -1,5 +1,5 @@
 package com.rpll.model;
-// Generated Apr 13, 2013 8:51:10 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 15, 2013 2:00:19 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -14,13 +14,13 @@ public class Department  implements java.io.Serializable {
      private Integer departmentId;
      private Lectures lectures;
      private String departmentName;
-     private Set lecturesWorks = new HashSet(0);
-     private Set announcementses = new HashSet(0);
-     private Set matkuls = new HashSet(0);
-     private Set studentses = new HashSet(0);
-     private Set feeKuliahs = new HashSet(0);
-     private Set faculties = new HashSet(0);
-     private Set studentAngkatans = new HashSet(0);
+     private Set<LecturesWork> lecturesWorks = new HashSet<LecturesWork>(0);
+     private Set<Announcements> announcementses = new HashSet<Announcements>(0);
+     private Set<MatkulDept> matkulDepts = new HashSet<MatkulDept>(0);
+     private Set<Students> studentses = new HashSet<Students>(0);
+     private Set<FeeKuliah> feeKuliahs = new HashSet<FeeKuliah>(0);
+     private Set<Faculty> faculties = new HashSet<Faculty>(0);
+     private Set<StudentAngkatan> studentAngkatans = new HashSet<StudentAngkatan>(0);
 
     public Department() {
     }
@@ -29,12 +29,12 @@ public class Department  implements java.io.Serializable {
     public Department(String departmentName) {
         this.departmentName = departmentName;
     }
-    public Department(Lectures lectures, String departmentName, Set lecturesWorks, Set announcementses, Set matkuls, Set studentses, Set feeKuliahs, Set faculties, Set studentAngkatans) {
+    public Department(Lectures lectures, String departmentName, Set<LecturesWork> lecturesWorks, Set<Announcements> announcementses, Set<MatkulDept> matkulDepts, Set<Students> studentses, Set<FeeKuliah> feeKuliahs, Set<Faculty> faculties, Set<StudentAngkatan> studentAngkatans) {
        this.lectures = lectures;
        this.departmentName = departmentName;
        this.lecturesWorks = lecturesWorks;
        this.announcementses = announcementses;
-       this.matkuls = matkuls;
+       this.matkulDepts = matkulDepts;
        this.studentses = studentses;
        this.feeKuliahs = feeKuliahs;
        this.faculties = faculties;
@@ -62,53 +62,53 @@ public class Department  implements java.io.Serializable {
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
     }
-    public Set getLecturesWorks() {
+    public Set<LecturesWork> getLecturesWorks() {
         return this.lecturesWorks;
     }
     
-    public void setLecturesWorks(Set lecturesWorks) {
+    public void setLecturesWorks(Set<LecturesWork> lecturesWorks) {
         this.lecturesWorks = lecturesWorks;
     }
-    public Set getAnnouncementses() {
+    public Set<Announcements> getAnnouncementses() {
         return this.announcementses;
     }
     
-    public void setAnnouncementses(Set announcementses) {
+    public void setAnnouncementses(Set<Announcements> announcementses) {
         this.announcementses = announcementses;
     }
-    public Set getMatkuls() {
-        return this.matkuls;
+    public Set<MatkulDept> getMatkulDepts() {
+        return this.matkulDepts;
     }
     
-    public void setMatkuls(Set matkuls) {
-        this.matkuls = matkuls;
+    public void setMatkulDepts(Set<MatkulDept> matkulDepts) {
+        this.matkulDepts = matkulDepts;
     }
-    public Set getStudentses() {
+    public Set<Students> getStudentses() {
         return this.studentses;
     }
     
-    public void setStudentses(Set studentses) {
+    public void setStudentses(Set<Students> studentses) {
         this.studentses = studentses;
     }
-    public Set getFeeKuliahs() {
+    public Set<FeeKuliah> getFeeKuliahs() {
         return this.feeKuliahs;
     }
     
-    public void setFeeKuliahs(Set feeKuliahs) {
+    public void setFeeKuliahs(Set<FeeKuliah> feeKuliahs) {
         this.feeKuliahs = feeKuliahs;
     }
-    public Set getFaculties() {
+    public Set<Faculty> getFaculties() {
         return this.faculties;
     }
     
-    public void setFaculties(Set faculties) {
+    public void setFaculties(Set<Faculty> faculties) {
         this.faculties = faculties;
     }
-    public Set getStudentAngkatans() {
+    public Set<StudentAngkatan> getStudentAngkatans() {
         return this.studentAngkatans;
     }
     
-    public void setStudentAngkatans(Set studentAngkatans) {
+    public void setStudentAngkatans(Set<StudentAngkatan> studentAngkatans) {
         this.studentAngkatans = studentAngkatans;
     }
 

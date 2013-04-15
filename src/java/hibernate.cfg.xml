@@ -6,6 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sia?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
+    <mapping resource="com/rpll/model/MatkulMandatory.hbm.xml"/>
     <mapping resource="com/rpll/model/Periods.hbm.xml"/>
     <mapping resource="com/rpll/model/Modul.hbm.xml"/>
     <mapping resource="com/rpll/model/MatkulType.hbm.xml"/>
@@ -18,6 +19,7 @@
     <mapping resource="com/rpll/model/TakeRooms.hbm.xml"/>
     <mapping resource="com/rpll/model/LecturesWork.hbm.xml"/>
     <mapping resource="com/rpll/model/Announcements.hbm.xml"/>
+    <mapping resource="com/rpll/model/MatkulDept.hbm.xml"/>
     <mapping resource="com/rpll/model/Bobot.hbm.xml"/>
     <mapping resource="com/rpll/model/Absences.hbm.xml"/>
     <mapping resource="com/rpll/model/Lectures.hbm.xml"/>

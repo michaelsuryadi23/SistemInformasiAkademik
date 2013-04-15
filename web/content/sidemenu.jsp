@@ -10,9 +10,9 @@
         <li>
             <a href="#">Mahasiswa<span class="arrow"></span></a>
             <ul>
-                <li><a href="../mahasiswa/editmahasiswa.jsp">Edit Identitas Mahasiswa</a></li>
-                <li><a href="../mahasiswa/showmahasiswa.jsp">View List Data Mahasiswa</a></li>
-                <li><a href="../mahasiswa/inputmahasiswa.jsp">Input Data Mahasiswa Baru</a></li>
+                <li><a href="../mahasiswa/update.jsp">Edit Identitas Mahasiswa</a></li>
+                <li><a href="../mahasiswa/list.jsp">View List Data Mahasiswa</a></li>
+                <li><a href="../mahasiswa/create.jsp">Input Data Mahasiswa Baru</a></li>
             </ul>
         </li>
         <li>
@@ -39,9 +39,13 @@
                     if (session.getAttribute("jabatan") != "keuangan") {
                 %>
                 <li><a href="../jadwalkuliah/edit.jsp">Edit Penjadwalan Kuliah</a></li>
-                <li><a href="../jadwalkuliah/edit.jsp">Assign Dosen Matakuliah</a></li>
+                <li><a href="../assigndosen/kurikulum.jsp">Assign Dosen Matakuliah</a></li>
                 <li><a href="../bagikelas/edit.jsp">Edit Pembagian Kelas Mahasiswa</a></li>
-                <li><a href="../kurikulum/edit.jsp">Edit Kurikulum Departemen</a></li>
+                <li><a href="../kurikulum/kurikulum.jsp">Edit Kurikulum Departemen</a></li>
+                <li><a href="../pengumuman/list.jsp">Input Pengumuman</a></li>
+                <li><a href="../angkatan/list.jsp">Input Data Angkatan</a></li>
+                <li><a href="../rooms/list.jsp">Data Rooms</a></li>
+                
 
                 <%                    }
                 %>
@@ -98,8 +102,8 @@
             <ul>
                 <li><a href="../dosen/update.jsp">Transkrip Nilai 1</a></li>
                 <li><a href="../dosen/list.jsp">Transkrip Nilai 2</a></li>
-                <li><a href="../dosen/create.jsp">Kartu Hasil Studi</a></li>
-                <li><a href="../dosen/create.jsp">Kartu Hasil Studi</a></li>
+                <li><a href="../khs/viewkhs.jsp">Kartu Hasil Studi</a></li>
+                <li><a href="../dosen/create.jsp">Rekap Absensi</a></li>
             </ul>
         </li>
         <li>
@@ -148,6 +152,37 @@
         </li>
     </ul>
 <%                                }
+    else {
+        if (session.getAttribute("jabatan").equals("lecture")) 
+        {
+            %>
+            <ul>
+        <li>
+            <a href="../home/home.jsp">Home</a>
+        </li>
+        <li>
+            <a href="#">Akademik<span class="arrow"></span></a>
+            <ul>
+                <li><a href="../staff/findstaff.jsp">Input Bobot Penilaian</a></li>
+                <li><a href="../staff/view.jsp">Input Nilai Ujian Reguler</a></li>
+                <li><a href="../staff/create.jsp">View CEF dari Mahasiswa</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Utilitas<span class="arrow"></span></a>
+            <ul>
+                <li><a href="#">Bantuan</a></li>
+                <li><a href="../utilitas/gantipassstaff.jsp">Ganti Password</a></li>                 
+            </ul>
+        </li>
+        <li>
+            <a href="#">Sign Out</a>
+        </li>
+    </ul>
+            <%
+        }
+    }
+    
         }
     }
 

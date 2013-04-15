@@ -1,5 +1,5 @@
 package com.rpll.model;
-// Generated Apr 13, 2013 8:51:10 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 15, 2013 2:00:19 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -18,7 +18,7 @@ public class Staff  implements java.io.Serializable {
      private String staffAddress;
      private String staffTelp;
      private String staffPass;
-     private Set announcementses = new HashSet(0);
+     private Set<Announcements> announcementses = new HashSet<Announcements>(0);
 
     public Staff() {
     }
@@ -32,7 +32,7 @@ public class Staff  implements java.io.Serializable {
         this.staffTelp = staffTelp;
         this.staffPass = staffPass;
     }
-    public Staff(Jobs jobs, University university, String staffName, String staffAddress, String staffTelp, String staffPass, Set announcementses) {
+    public Staff(Jobs jobs, University university, String staffName, String staffAddress, String staffTelp, String staffPass, Set<Announcements> announcementses) {
        this.jobs = jobs;
        this.university = university;
        this.staffName = staffName;
@@ -91,11 +91,11 @@ public class Staff  implements java.io.Serializable {
     public void setStaffPass(String staffPass) {
         this.staffPass = staffPass;
     }
-    public Set getAnnouncementses() {
+    public Set<Announcements> getAnnouncementses() {
         return this.announcementses;
     }
     
-    public void setAnnouncementses(Set announcementses) {
+    public void setAnnouncementses(Set<Announcements> announcementses) {
         this.announcementses = announcementses;
     }
 

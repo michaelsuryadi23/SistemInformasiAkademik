@@ -20,11 +20,15 @@
                 $('.menu').fixedMenu();
             });
         </script>
+        
+        
     </head>
 
     <body>
         <jsp:include page="../header.jsp"/>
         <jsp:include page="privilage.jsp"/>
+        
+
         
         <div id="content">
             <jsp:include page="../sidemenu.jsp" />

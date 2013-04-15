@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 13, 2013 8:51:11 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Apr 15, 2013 2:00:21 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.rpll.model.Lectures" table="lectures" catalog="sia">
         <id name="lectureId" type="java.lang.Integer">
@@ -19,6 +19,9 @@
         </property>
         <property name="lectureEmail" type="string">
             <column name="lecture_email" length="20" not-null="true" />
+        </property>
+        <property name="lecturePass" type="string">
+            <column name="lecture_pass" length="20" not-null="true" />
         </property>
         <set name="lecturesWorks" inverse="true">
             <key>

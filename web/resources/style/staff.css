@@ -1,0 +1,15 @@
+/* 
+    Document   : staff
+    Created on : Apr 15, 2013, 3:16:19 PM
+    Author     : Michael
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#content {
+    height: 700px;
+}

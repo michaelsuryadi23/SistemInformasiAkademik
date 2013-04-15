@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 15, 2013 2:00:21 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.MatkulDept" table="matkul_dept" catalog="sia">
+        <composite-id name="id" class="com.rpll.model.MatkulDeptId">
+            <key-property name="matkulId" type="int">
+                <column name="matkul_id" />
+            </key-property>
+            <key-property name="departmentId" type="int">
+                <column name="department_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="matkul" class="com.rpll.model.Matkul" update="false" insert="false" fetch="select">
+            <column name="matkul_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="matkulMandatory" class="com.rpll.model.MatkulMandatory" fetch="select">
+            <column name="mandatory_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="department" class="com.rpll.model.Department" update="false" insert="false" fetch="select">
+            <column name="department_id" not-null="true" />
+        </many-to-one>
+        <property name="bobotSks" type="int">
+            <column name="bobot_sks" not-null="true" />
+        </property>
+        <property name="matkulSem" type="int">
+            <column name="matkul_sem" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

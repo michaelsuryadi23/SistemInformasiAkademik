@@ -1,5 +1,5 @@
 package com.rpll.model;
-// Generated Apr 13, 2013 8:51:10 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 15, 2013 2:00:19 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -14,34 +14,31 @@ public class Matkul  implements java.io.Serializable {
      private Integer matkulId;
      private MatkulType matkulType;
      private String matkulName;
-     private int bobotSks;
-     private Set markses = new HashSet(0);
-     private Set teachPeriods = new HashSet(0);
-     private Set takeRoomses = new HashSet(0);
-     private Set departments = new HashSet(0);
-     private Set takeMatkulPeriods = new HashSet(0);
-     private Set classSessions = new HashSet(0);
-     private Set bobots = new HashSet(0);
-     private Set moduls = new HashSet(0);
-     private Set absenceses = new HashSet(0);
+     private Set<Marks> markses = new HashSet<Marks>(0);
+     private Set<TeachPeriod> teachPeriods = new HashSet<TeachPeriod>(0);
+     private Set<TakeRooms> takeRoomses = new HashSet<TakeRooms>(0);
+     private Set<MatkulDept> matkulDepts = new HashSet<MatkulDept>(0);
+     private Set<TakeMatkulPeriod> takeMatkulPeriods = new HashSet<TakeMatkulPeriod>(0);
+     private Set<ClassSession> classSessions = new HashSet<ClassSession>(0);
+     private Set<Bobot> bobots = new HashSet<Bobot>(0);
+     private Set<Modul> moduls = new HashSet<Modul>(0);
+     private Set<Absences> absenceses = new HashSet<Absences>(0);
 
     public Matkul() {
     }
 
 	
-    public Matkul(MatkulType matkulType, String matkulName, int bobotSks) {
+    public Matkul(MatkulType matkulType, String matkulName) {
         this.matkulType = matkulType;
         this.matkulName = matkulName;
-        this.bobotSks = bobotSks;
     }
-    public Matkul(MatkulType matkulType, String matkulName, int bobotSks, Set markses, Set teachPeriods, Set takeRoomses, Set departments, Set takeMatkulPeriods, Set classSessions, Set bobots, Set moduls, Set absenceses) {
+    public Matkul(MatkulType matkulType, String matkulName, Set<Marks> markses, Set<TeachPeriod> teachPeriods, Set<TakeRooms> takeRoomses, Set<MatkulDept> matkulDepts, Set<TakeMatkulPeriod> takeMatkulPeriods, Set<ClassSession> classSessions, Set<Bobot> bobots, Set<Modul> moduls, Set<Absences> absenceses) {
        this.matkulType = matkulType;
        this.matkulName = matkulName;
-       this.bobotSks = bobotSks;
        this.markses = markses;
        this.teachPeriods = teachPeriods;
        this.takeRoomses = takeRoomses;
-       this.departments = departments;
+       this.matkulDepts = matkulDepts;
        this.takeMatkulPeriods = takeMatkulPeriods;
        this.classSessions = classSessions;
        this.bobots = bobots;
@@ -70,74 +67,67 @@ public class Matkul  implements java.io.Serializable {
     public void setMatkulName(String matkulName) {
         this.matkulName = matkulName;
     }
-    public int getBobotSks() {
-        return this.bobotSks;
-    }
-    
-    public void setBobotSks(int bobotSks) {
-        this.bobotSks = bobotSks;
-    }
-    public Set getMarkses() {
+    public Set<Marks> getMarkses() {
         return this.markses;
     }
     
-    public void setMarkses(Set markses) {
+    public void setMarkses(Set<Marks> markses) {
         this.markses = markses;
     }
-    public Set getTeachPeriods() {
+    public Set<TeachPeriod> getTeachPeriods() {
         return this.teachPeriods;
     }
     
-    public void setTeachPeriods(Set teachPeriods) {
+    public void setTeachPeriods(Set<TeachPeriod> teachPeriods) {
         this.teachPeriods = teachPeriods;
     }
-    public Set getTakeRoomses() {
+    public Set<TakeRooms> getTakeRoomses() {
         return this.takeRoomses;
     }
     
-    public void setTakeRoomses(Set takeRoomses) {
+    public void setTakeRoomses(Set<TakeRooms> takeRoomses) {
         this.takeRoomses = takeRoomses;
     }
-    public Set getDepartments() {
-        return this.departments;
+    public Set<MatkulDept> getMatkulDepts() {
+        return this.matkulDepts;
     }
     
-    public void setDepartments(Set departments) {
-        this.departments = departments;
+    public void setMatkulDepts(Set<MatkulDept> matkulDepts) {
+        this.matkulDepts = matkulDepts;
     }
-    public Set getTakeMatkulPeriods() {
+    public Set<TakeMatkulPeriod> getTakeMatkulPeriods() {
         return this.takeMatkulPeriods;
     }
     
-    public void setTakeMatkulPeriods(Set takeMatkulPeriods) {
+    public void setTakeMatkulPeriods(Set<TakeMatkulPeriod> takeMatkulPeriods) {
         this.takeMatkulPeriods = takeMatkulPeriods;
     }
-    public Set getClassSessions() {
+    public Set<ClassSession> getClassSessions() {
         return this.classSessions;
     }
     
-    public void setClassSessions(Set classSessions) {
+    public void setClassSessions(Set<ClassSession> classSessions) {
         this.classSessions = classSessions;
     }
-    public Set getBobots() {
+    public Set<Bobot> getBobots() {
         return this.bobots;
     }
     
-    public void setBobots(Set bobots) {
+    public void setBobots(Set<Bobot> bobots) {
         this.bobots = bobots;
     }
-    public Set getModuls() {
+    public Set<Modul> getModuls() {
         return this.moduls;
     }
     
-    public void setModuls(Set moduls) {
+    public void setModuls(Set<Modul> moduls) {
         this.moduls = moduls;
     }
-    public Set getAbsenceses() {
+    public Set<Absences> getAbsenceses() {
         return this.absenceses;
     }
     
-    public void setAbsenceses(Set absenceses) {
+    public void setAbsenceses(Set<Absences> absenceses) {
         this.absenceses = absenceses;
     }
 

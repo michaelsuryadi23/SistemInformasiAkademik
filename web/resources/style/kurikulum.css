@@ -1,0 +1,16 @@
+/* 
+    Document   : kurikulum
+    Created on : Apr 15, 2013, 9:27:17 AM
+    Author     : Michael
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#content {
+    height: 800px;
+}
+

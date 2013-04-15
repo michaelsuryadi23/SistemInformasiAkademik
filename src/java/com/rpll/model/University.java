@@ -1,5 +1,5 @@
 package com.rpll.model;
-// Generated Apr 13, 2013 8:51:10 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 15, 2013 2:00:19 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -22,8 +22,8 @@ public class University  implements java.io.Serializable {
      private String akreditasi;
      private Date foundDate;
      private String rector;
-     private Set staffs = new HashSet(0);
-     private Set faculties = new HashSet(0);
+     private Set<Staff> staffs = new HashSet<Staff>(0);
+     private Set<Faculty> faculties = new HashSet<Faculty>(0);
 
     public University() {
     }
@@ -40,7 +40,7 @@ public class University  implements java.io.Serializable {
         this.foundDate = foundDate;
         this.rector = rector;
     }
-    public University(String univName, String univAddress, String univTelp, String univEmail, String univHomepage, int noAkreditasi, String akreditasi, Date foundDate, String rector, Set staffs, Set faculties) {
+    public University(String univName, String univAddress, String univTelp, String univEmail, String univHomepage, int noAkreditasi, String akreditasi, Date foundDate, String rector, Set<Staff> staffs, Set<Faculty> faculties) {
        this.univName = univName;
        this.univAddress = univAddress;
        this.univTelp = univTelp;
@@ -124,18 +124,18 @@ public class University  implements java.io.Serializable {
     public void setRector(String rector) {
         this.rector = rector;
     }
-    public Set getStaffs() {
+    public Set<Staff> getStaffs() {
         return this.staffs;
     }
     
-    public void setStaffs(Set staffs) {
+    public void setStaffs(Set<Staff> staffs) {
         this.staffs = staffs;
     }
-    public Set getFaculties() {
+    public Set<Faculty> getFaculties() {
         return this.faculties;
     }
     
-    public void setFaculties(Set faculties) {
+    public void setFaculties(Set<Faculty> faculties) {
         this.faculties = faculties;
     }
 

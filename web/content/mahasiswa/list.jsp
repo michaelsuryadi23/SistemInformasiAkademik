@@ -4,6 +4,8 @@
     Author     : Michael
 --%>
 
+<%@page import="com.rpll.model.StudentAngkatan"%>
+<%@page import="org.hibernate.Query"%>
 <%@page import="com.rpll.model.Department"%>
 <%@page import="java.util.List"%>
 <%@page import="com.rpll.model.Students"%>
@@ -13,8 +15,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home - Sistem Informasi Akademik</title>
+        <title>Mahasiswa - Sistem Informasi Akademik</title>
         <link rel="stylesheet" type="text/css" href="../../resources/style/home.css"/>
+        <link rel="stylesheet" type="text/css" href="../../resources/style/mahasiswa.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/fixedMenu_style2.css"/>
 
         <script src="../../resources/js/jquery-1.7.2.min.js"></script>
@@ -28,46 +31,90 @@
 
     <body>
         <jsp:include page="../header.jsp"/>
+
         <div id="content">
             <jsp:include page="../sidemenu.jsp" />
-            <div id="content-left">
-            </div>
 
-            <div id="content-mid">
-                <h2 style="text-align: center; margin-left: 20px;">List Mahasiswa</h2>
-                <table style="margin-left: 70px; width: 500px;" border="1">
-                    <thead style="background-color: black; color: white;border: 1px dotted black">
-                        <th>NIM</th>
-                        <th>Nama</th>
-                        <th>Alamat</th>
-                        <th>Telp</th>
-                        <th>Opsi</th>
-                    </thead>
+            <h2 style="text-align: center; margin-left: 20px;">List Mahasiswa</h2>
+            <jsp:include page="filter.jsp"/>
+            <table style="margin-left:250px; width: 500px; margin-top: 20px;" border="1">
+                <thead style="background-color: black; color: white;border: 1px dotted black">
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Telp</th>
+                <th>Jurusan</th>
+                <th>Angkatan</th>
+                <th>Opsi</th>
+                </thead>
                 <%
+                    int noHlm;
                     Session sess = HibernateUtil.getSessionFactory().openSession();
-                    List<Students> listStudents = sess.createQuery("from Students").list();
+                    List<StudentAngkatan> listStudents;
+                    if (request.getParameter("page") == null) {
+                        Query q = sess.createQuery("from StudentAngkatan");
+                        q.setMaxResults(15);
+                        listStudents = q.list();
+                        noHlm = 1;
+                    } else {
+                        int hlm = Integer.parseInt(request.getParameter("page"));
+                        int startId = ((hlm - 1) * 15) + 10000;
+                        noHlm = hlm;
+                        Query q = sess.createQuery("from StudentAngkatan where id.studentId>" + startId);
+                        q.setMaxResults(15);
+                        listStudents = q.list();
+                    }
                     
-                    for(Students o :listStudents){
+                     if (request.getParameter("filter") != null) {
+                        int filterBy = Integer.parseInt(request.getParameter("filter"));
+                        String keyword = request.getParameter("keyword");
+
+                        if (filterBy == 1) {
+                            Session sess2 = HibernateUtil.getSessionFactory().openSession();
+                            listStudents = sess2.createQuery("from StudentAngkatan where id.studentId=" + keyword).list();
+                        }
+                     }
+                    
+                    for (StudentAngkatan o : listStudents) {
                 %>
                 <tr>
-                    <td><%= o.getStudentId() %></td>
-                    <td><%= o.getStudentName() %></td>
-                    <td><%= o.getStudentAddress() %></td>
-                    <td><%= o.getStudentTelp() %></td>
-                    <td><a href="editmahasiswa.jsp?nim=<%= o.getStudentId() %>">Pilih</a></td>
+                    <td><%= o.getStudents().getStudentId() %></td>
+                    <td><%= o.getStudents().getStudentName() %></td>
+                    <td><%= o.getStudents().getStudentAddress() %></td>
+                    <td><%= o.getStudents().getStudentTelp()%></td>
+                    <td><%= o.getDepartment().getDepartmentName() %></td>
+                    <td><%= o.getAngkatan().getAngkatanDesc() %></td>
+                    <td><a href="update.jsp?nim=<%= o.getStudents().getStudentId()%>">Update</a></td>
                 </tr>
                 <%
                     }
                 %>
-                </table>
-            </div>
+            </table>
+            <%
+                if (request.getParameter("filterBy") == null) {
+                    Session session3 = HibernateUtil.getSessionFactory().openSession();
+                    List<StudentAngkatan> listData = session3.createQuery("from StudentAngkatan").list();
+                    int totalData = listData.size();
+                    String total = "Jumlah Data Sebanyak " + totalData;
+            %>
+            <p style="text-align: left; margin-left: 50px;"><b><%= total%></b></p>
+                    <% %>
+            <p style="text-align: left; margin-left: 50px;">Page : </p>
+            <%
+                    int jmlHlm = totalData / 15;
+                    for (int i = 1; i <= (jmlHlm + 1); i++) {
+                        if (i == noHlm) {
+                            out.println("<p style='text-align:left;margin-left: 50px;'><b>" + i + "| </b></p>");
+                        } else {
+                            out.println("<b><a href='list.jsp?page=" + i + "'>" + i + "| </a></b>");
+                        }
+                    }
+                }
 
-            <div id="content-right">
-
-            </div>
+            %>
         </div>
 
-<jsp:include page="../footer.jsp"/>
+        <jsp:include page="../footer.jsp"/>
 
     </body>
 </html>

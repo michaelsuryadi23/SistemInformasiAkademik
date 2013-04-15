@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 15, 2013 2:00:21 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.rpll.model.MatkulMandatory" table="matkul_mandatory" catalog="sia">
+        <id name="mandatoryId" type="java.lang.Integer">
+            <column name="mandatory_id" />
+            <generator class="identity" />
+        </id>
+        <property name="mandatoryCode" type="string">
+            <column name="mandatory_code" length="3" not-null="true" />
+        </property>
+        <property name="mandatoryName" type="string">
+            <column name="mandatory_name" length="20" not-null="true" />
+        </property>
+        <set name="matkulDepts" inverse="true">
+            <key>
+                <column name="mandatory_id" not-null="true" />
+            </key>
+            <one-to-many class="com.rpll.model.MatkulDept" />
+        </set>
+    </class>
+</hibernate-mapping>

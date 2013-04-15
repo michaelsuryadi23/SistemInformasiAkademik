@@ -4,6 +4,7 @@
     Author     : Michael
 --%>
 
+<%@page import="org.hibernate.Query"%>
 <%@page import="com.rpll.model.Staff"%>
 <%@page import="java.util.List"%>
 <%@page import="org.hibernate.Session"%>
@@ -15,6 +16,7 @@
     <head>
         <title>Home - Sistem Informasi Akademik</title>
         <link rel="stylesheet" type="text/css" href="../../resources/style/home.css"/>
+        <link rel="stylesheet" type="text/css" href="../../resources/style/staff.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/fixedMenu_style2.css"/>
 
         <script src="../../resources/js/jquery-1.7.2.min.js"></script>
@@ -30,12 +32,13 @@
         <jsp:include page="../header.jsp"/>
         <div id="content">
             <jsp:include page="../sidemenu.jsp" />
-            <div id="content-left">
-            </div>
+            
 
-            <div id="content-mid">
+
+           
                 <h2 style="text-align: center; margin-left: 20px;">View Data Staff</h2>
-                <table style="margin-left: 70px; width: 500px;" border="1">
+                <jsp:include page="filter.jsp" />
+                <table style="margin-left: 250px; width: 500px; margin-top: 20px;" border="1">
                     <thead style="background-color: black; color: white;border: 1px dotted black">
                         <th>NIK</th>
                         <th>Nama</th>
@@ -45,7 +48,40 @@
                     </thead>
                 <%
                     Session sess = HibernateUtil.getSessionFactory().openSession();
-                    List<Staff> listStaff = sess.createQuery("from Staff").list();
+                    
+                    
+                    int noHlm;
+                    List<Staff> listStaff;
+                    Session sess2 = HibernateUtil.getSessionFactory().openSession();
+                    if (request.getParameter("page") == null) {
+                        Query q = sess2.createQuery("from Staff");
+                        q.setMaxResults(15);
+                        listStaff = q.list();
+                        noHlm = 1;
+                    } else {
+                        int hlm = Integer.parseInt(request.getParameter("page"));
+                        int startId = ((hlm - 1) * 15) + 2000;
+                        noHlm = hlm;
+                        Query q = sess2.createQuery("from Periods where periodYear>" + startId);
+                        q.setMaxResults(15);
+                        listStaff = q.list();
+                    }
+
+
+                    if (request.getParameter("filter") != null) {
+                        int filterBy = Integer.parseInt(request.getParameter("filter"));
+                        String keyword = request.getParameter("keyword");
+
+                        if (filterBy == 1) {
+                            Session sess3 = HibernateUtil.getSessionFactory().openSession();
+                            listStaff = sess3.createQuery("from Staff where staffId=" + keyword).list();
+                        } 
+                            
+                        
+                    } else {
+                        Session sess4 = HibernateUtil.getSessionFactory().openSession();
+                        listStaff = sess.createQuery("from Staff").list();
+                    }
                     
                     for(Staff o :listStaff){
                 %>
@@ -54,17 +90,35 @@
                     <td><%= o.getStaffName() %></td>
                     <td><%= o.getStaffAddress() %></td>
                     <td><%= o.getStaffTelp() %></td>
-                    <td><a href="findstaff.jsp?nik=<%= o.getStaffId() %>">Pilih</a></td>
+                    <td><a href="findstaff.jsp?nik=<%= o.getStaffId() %>">Update</a></td>
                 </tr>
                 <%
                     }
                 %>
                 </table>
-            </div>
+                            <%
+                if (request.getParameter("filterBy") == null) {
+                    Session session3 = HibernateUtil.getSessionFactory().openSession();
+                    List<Staff> listData = session3.createQuery("from Staff").list();
+                    int totalData = listData.size();
+                    String total = "Jumlah Data Sebanyak " + totalData;
+            %>
+                <p style="text-align: left; margin-left: 50px;"><b><%= total %></b></p>
+            <% %>
+            <p style="text-align: left; margin-left: 50px;">Page : </p>
+            <%
+                    int jmlHlm = totalData / 15;
+                    for (int i = 1; i <= (jmlHlm + 1); i++) {
+                        if (i == noHlm) {
+                            out.println("<p style='text-align:left;margin-left: 50px;'><b>" + i + "| </b></p>");
+                        } else {
+                            out.println("<b><a href='list.jsp?page=" + i + "'>" + i + "| </a></b>");
+                        }
+                    }
+                }
 
-            <div id="content-right">
+            %>
 
-            </div>
         </div>
 
         <div id="footer" style="background-color: black; height: 70px; width: 1000px; margin: auto; text-align: center;">

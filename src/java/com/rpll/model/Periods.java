@@ -1,5 +1,5 @@
 package com.rpll.model;
-// Generated Apr 13, 2013 8:51:10 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 15, 2013 2:00:19 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -24,18 +24,19 @@ public class Periods  implements java.io.Serializable {
      private Date finishPayment2;
      private Date startSemester;
      private Date finishSemester;
-     private Set teachPeriods = new HashSet(0);
-     private Set markses = new HashSet(0);
-     private Set takeMatkulPeriods = new HashSet(0);
-     private Set classSessions = new HashSet(0);
-     private Set bobots = new HashSet(0);
-     private Set absenceses = new HashSet(0);
+     private int status;
+     private Set<TeachPeriod> teachPeriods = new HashSet<TeachPeriod>(0);
+     private Set<Marks> markses = new HashSet<Marks>(0);
+     private Set<TakeMatkulPeriod> takeMatkulPeriods = new HashSet<TakeMatkulPeriod>(0);
+     private Set<ClassSession> classSessions = new HashSet<ClassSession>(0);
+     private Set<Bobot> bobots = new HashSet<Bobot>(0);
+     private Set<Absences> absenceses = new HashSet<Absences>(0);
 
     public Periods() {
     }
 
 	
-    public Periods(String periodDescription, Date startFrs, Date startPrs, Date startPayment1, Date startPayment2, Date finishFrs, Date finishPrs, Date finishPayment1, Date finishPayment2, Date startSemester, Date finishSemester) {
+    public Periods(String periodDescription, Date startFrs, Date startPrs, Date startPayment1, Date startPayment2, Date finishFrs, Date finishPrs, Date finishPayment1, Date finishPayment2, Date startSemester, Date finishSemester, int status) {
         this.periodDescription = periodDescription;
         this.startFrs = startFrs;
         this.startPrs = startPrs;
@@ -47,8 +48,9 @@ public class Periods  implements java.io.Serializable {
         this.finishPayment2 = finishPayment2;
         this.startSemester = startSemester;
         this.finishSemester = finishSemester;
+        this.status = status;
     }
-    public Periods(String periodDescription, Date startFrs, Date startPrs, Date startPayment1, Date startPayment2, Date finishFrs, Date finishPrs, Date finishPayment1, Date finishPayment2, Date startSemester, Date finishSemester, Set teachPeriods, Set markses, Set takeMatkulPeriods, Set classSessions, Set bobots, Set absenceses) {
+    public Periods(String periodDescription, Date startFrs, Date startPrs, Date startPayment1, Date startPayment2, Date finishFrs, Date finishPrs, Date finishPayment1, Date finishPayment2, Date startSemester, Date finishSemester, int status, Set<TeachPeriod> teachPeriods, Set<Marks> markses, Set<TakeMatkulPeriod> takeMatkulPeriods, Set<ClassSession> classSessions, Set<Bobot> bobots, Set<Absences> absenceses) {
        this.periodDescription = periodDescription;
        this.startFrs = startFrs;
        this.startPrs = startPrs;
@@ -60,6 +62,7 @@ public class Periods  implements java.io.Serializable {
        this.finishPayment2 = finishPayment2;
        this.startSemester = startSemester;
        this.finishSemester = finishSemester;
+       this.status = status;
        this.teachPeriods = teachPeriods;
        this.markses = markses;
        this.takeMatkulPeriods = takeMatkulPeriods;
@@ -152,46 +155,53 @@ public class Periods  implements java.io.Serializable {
     public void setFinishSemester(Date finishSemester) {
         this.finishSemester = finishSemester;
     }
-    public Set getTeachPeriods() {
+    public int getStatus() {
+        return this.status;
+    }
+    
+    public void setStatus(int status) {
+        this.status = status;
+    }
+    public Set<TeachPeriod> getTeachPeriods() {
         return this.teachPeriods;
     }
     
-    public void setTeachPeriods(Set teachPeriods) {
+    public void setTeachPeriods(Set<TeachPeriod> teachPeriods) {
         this.teachPeriods = teachPeriods;
     }
-    public Set getMarkses() {
+    public Set<Marks> getMarkses() {
         return this.markses;
     }
     
-    public void setMarkses(Set markses) {
+    public void setMarkses(Set<Marks> markses) {
         this.markses = markses;
     }
-    public Set getTakeMatkulPeriods() {
+    public Set<TakeMatkulPeriod> getTakeMatkulPeriods() {
         return this.takeMatkulPeriods;
     }
     
-    public void setTakeMatkulPeriods(Set takeMatkulPeriods) {
+    public void setTakeMatkulPeriods(Set<TakeMatkulPeriod> takeMatkulPeriods) {
         this.takeMatkulPeriods = takeMatkulPeriods;
     }
-    public Set getClassSessions() {
+    public Set<ClassSession> getClassSessions() {
         return this.classSessions;
     }
     
-    public void setClassSessions(Set classSessions) {
+    public void setClassSessions(Set<ClassSession> classSessions) {
         this.classSessions = classSessions;
     }
-    public Set getBobots() {
+    public Set<Bobot> getBobots() {
         return this.bobots;
     }
     
-    public void setBobots(Set bobots) {
+    public void setBobots(Set<Bobot> bobots) {
         this.bobots = bobots;
     }
-    public Set getAbsenceses() {
+    public Set<Absences> getAbsenceses() {
         return this.absenceses;
     }
     
-    public void setAbsenceses(Set absenceses) {
+    public void setAbsenceses(Set<Absences> absenceses) {
         this.absenceses = absenceses;
     }
 
