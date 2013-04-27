@@ -37,7 +37,7 @@
 
             <h2 style="text-align: center; margin-left: 20px;">List Mahasiswa</h2>
             <jsp:include page="filter.jsp"/>
-            <table style="margin-left:250px; width: 500px; margin-top: 20px;" border="1">
+            <table style="margin-left:150px; width: 700px; margin-top: 20px; margin-bottom: 50px">
                 <thead style="background-color: black; color: white;border: 1px dotted black">
                 <th>NIM</th>
                 <th>Nama</th>
@@ -78,13 +78,13 @@
                     for (StudentAngkatan o : listStudents) {
                 %>
                 <tr>
-                    <td><%= o.getStudents().getStudentId() %></td>
-                    <td><%= o.getStudents().getStudentName() %></td>
-                    <td><%= o.getStudents().getStudentAddress() %></td>
-                    <td><%= o.getStudents().getStudentTelp()%></td>
-                    <td><%= o.getDepartment().getDepartmentName() %></td>
-                    <td><%= o.getAngkatan().getAngkatanDesc() %></td>
-                    <td><a href="update.jsp?nim=<%= o.getStudents().getStudentId()%>">Update</a></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStudents().getStudentId() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStudents().getStudentName() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStudents().getStudentAddress() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStudents().getStudentTelp()%></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getDepartment().getDepartmentName() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getAngkatan().getAngkatanDesc() %></td>
+                    <td style="border-bottom: 1px dotted black;"><a href="update.jsp?nim=<%= o.getStudents().getStudentId()%>">Update</a></td>
                 </tr>
                 <%
                     }

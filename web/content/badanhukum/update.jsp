@@ -38,14 +38,14 @@
                 List<University> univ = sess.createQuery("from University where univId="+id).list();
                 University univData = univ.get(0);
                 %>
-            <h2 style="text-align: center; margin-left: 20px; padding-top: 10px;">Input Badan Hukum</h2>
-            <form name='f' action="BadanHukumServlet?mode=1" method='POST'>
+            <h2 style="text-align: center; margin-left: 20px; padding-top: 10px;">Update Badan Hukum</h2>
+            <form name='f' action="../../BadanHukumServlet?mode=2" method='POST'>
                 <div id="content-left" style="margin-left: 300px; width: 400px;">
                     <fieldset>
                         <table>
-                            <tr><td><label for="username">Univ ID : </label></td>
-                                <td><input type="text" name="univId" style="height: 20px; width: 200px" readonly="readonly" value="<%= univData.getUnivId() %>"></td>
-                            </tr>
+                            
+                                <input type="hidden" name="univId" style="height: 20px; width: 200px" readonly="readonly" value="<%= univData.getUnivId() %>">
+                            
                             <tr>
                                 <td> <label for="username">Univ Name : </label></td>
                                 <td><input type="text" name="univName" style="height: 20px; width: 200px" value="<%= univData.getUnivName() %>"></td>

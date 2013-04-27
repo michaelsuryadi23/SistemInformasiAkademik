@@ -11,6 +11,7 @@
         <title>Badan Hukum - Sistem Informasi Akademik</title>
         <link rel="stylesheet" type="text/css" href="../../resources/style/home.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/home2.css"/>
+        <link rel="stylesheet" type="text/css" href="../../resources/style/badanhukum.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/fixedMenu_style2.css"/>
 
         <script src="../../resources/js/jquery-1.7.2.min.js"></script>
@@ -29,13 +30,10 @@
             <jsp:include page="../sidemenu.jsp"/>
             <jsp:include page="privilage.jsp"/>
             <h2 style="text-align: center; margin-left: 20px; padding-top: 10px;">Input Badan Hukum</h2>
-            <form name='f' action="BadanHukumServlet?mode=1" method='POST'>
+            <form name='f' action="../../BadanHukumServlet?mode=1" method='POST'>
                 <div id="content-left" style="margin-left: 300px; width: 400px;">
                     <fieldset>
                         <table>
-                            <tr><td><label for="username">Univ ID : </label></td>
-                                <td><input type="text" name="univId" style="height: 20px; width: 200px"></td>
-                            </tr>
                             <tr>
                                 <td> <label for="username">Univ Name : </label></td>
                                 <td><input type="text" name="univName" style="height: 20px; width: 200px"></td>

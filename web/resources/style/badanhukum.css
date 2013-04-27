@@ -1,0 +1,16 @@
+/* 
+    Document   : badanhukum
+    Created on : Apr 16, 2013, 12:49:45 PM
+    Author     : Michael
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#content{
+    height: 600px;
+}
+

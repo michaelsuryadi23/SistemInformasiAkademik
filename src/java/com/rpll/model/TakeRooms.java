@@ -1,5 +1,5 @@
 package com.rpll.model;
-// Generated Apr 15, 2013 2:00:19 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 26, 2013 8:19:43 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;

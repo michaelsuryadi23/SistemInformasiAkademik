@@ -1,0 +1,15 @@
+/* 
+    Document   : matkul
+    Created on : Apr 16, 2013, 2:02:08 PM
+    Author     : Michael
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#content {
+    height: 800px;
+}

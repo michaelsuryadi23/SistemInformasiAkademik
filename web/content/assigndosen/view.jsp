@@ -79,12 +79,12 @@
                                             <td style="border-bottom: 1px dotted black;"><%= m.getMatkul().getMatkulId() %></td>
                                             <td style="border-bottom: 1px dotted black;"><%= m.getMatkul().getMatkulName()%></td>
                                             <td style="border-bottom: 1px dotted black;">
-                                                <select name="dosen" style="width: 150px;">
+                                                <select name="dosen" style="width: 180px;">
                                                     <%
                                                         List<Lectures> listLectures = sess.createQuery("From Lectures").list();
                                                         for(Lectures o : listLectures) {
                                                             %>
-                                                            <option value="<%= o.getLectureId() %>" <% if(o.getLectureId()==m.getLectures().getLectureId()){ out.print("selected='selected'"); } %>><%= o.getLectureName() %></option>
+                                                            <option value="<%= o.getLectureId() %>" <% if(o.getLectureId()==m.getLectures().getLectureId()){ out.print("selected='selected'"); } %>><%= o.getLectureId() %> - <%= o.getLectureName() %></option>
                                                             <%
                                                         }
                                                     %>

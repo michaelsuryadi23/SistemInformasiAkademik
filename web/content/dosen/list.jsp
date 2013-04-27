@@ -18,7 +18,9 @@
         <link rel="stylesheet" type="text/css" href="../../resources/style/home.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/home2.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/style.css"/>
+        <link rel="stylesheet" type="text/css" href="../../resources/style/mahasiswa.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/fixedMenu_style2.css"/>
+        <link rel="stylesheet" type="text/css" href="../../resources/style/modern.css"/>
 
         <script src="../../resources/js/jquery-1.7.2.min.js"></script>
         <script src="../../resources/js/jquery.fixedMenu.js"></script>
@@ -36,8 +38,8 @@
             <h2 style="text-align: center; margin-left: 20px;">List Dosen</h2>
             <jsp:include page="filter.jsp" />
             <jsp:include page="privilage.jsp" />
-
-            <table style="margin-left: 50px; width: 900px; margin-top: 10px;" border="1">
+            <div class="metrouicss">
+            <table class="hovered" style="margin-left: 50px; width: 900px; margin-top: 10px;">
                 <thead style="background-color: black; color: white;border: 1px dotted black">
                 <th>Lecture ID</th>
                 <th>Nama</th>
@@ -48,12 +50,12 @@
                 </thead>
                 <%
                     int noHlm;
-                    List<Lectures> listUniv;
+                    List<Lectures> listLec;
                     Session sess2 = HibernateUtil.getSessionFactory().openSession();
                     if (request.getParameter("page") == null) {
                         Query q = sess2.createQuery("from Lectures");
                         q.setMaxResults(15);
-                        listUniv = q.list();
+                        listLec = q.list();
                         noHlm = 1;
                     } else {
                         int hlm = Integer.parseInt(request.getParameter("page"));
@@ -61,7 +63,7 @@
                         noHlm = hlm;
                         Query q = sess2.createQuery("from Lectures where lectureId>" + startId);
                         q.setMaxResults(15);
-                        listUniv = q.list();
+                        listLec = q.list();
                     }
 
 
@@ -71,18 +73,18 @@
 
                         if (filterBy == 1) {
                             Session sess = HibernateUtil.getSessionFactory().openSession();
-                            listUniv = sess.createQuery("from Lectures where lectureId=" + keyword).list();
+                            listLec = sess.createQuery("from Lectures where lectureId=" + keyword).list();
                         } else {
                             if (filterBy == 2) {
-                                Session sess = HibernateUtil.getSessionFactory().openSession();
-                                listUniv = sess.createQuery("from Lectures where lower(lectureName) like '%" + keyword + "%'").list();
-                            }
+                                   Session sess = HibernateUtil.getSessionFactory().openSession();
+                                   listLec = sess.createQuery("from Lectures where lower(lectureName) like '%" + keyword + "%'").list();
+                                  }
                         }
                     } else {
                         Session sess = HibernateUtil.getSessionFactory().openSession();
-                        listUniv = sess.createQuery("from Lectures").list();
+                        listLec = sess.createQuery("from Lectures").list();
                     }
-                    for (Lectures o : listUniv) {
+                    for (Lectures o : listLec) {
                 %>
                 <tr>
                     <td><%= o.getLectureId()%></td>
@@ -90,16 +92,17 @@
                     <td><%= o.getLectureAddress()%></td>
                     <td><%= o.getLectureEmail()%></td>
                     <td><%= o.getLectureTelp()%></td>
-                    <td><a href="update.jsp?univId=<%= o.getLectureId()%>">Update</a></td>
+                    <td><a href="update.jsp?lectureId=<%= o.getLectureId() %>">Update</a></td>
                 </tr>
                 <%
                     }
                 %>
             </table>
+            </div>
             <%
                 if (request.getParameter("filterBy") == null) {
                     Session session3 = HibernateUtil.getSessionFactory().openSession();
-                    List<University> listData = session3.createQuery("from Lectures").list();
+                    List<Lectures> listData = session3.createQuery("from Lectures").list();
                     int totalData = listData.size();
                     String total = "Jumlah Data Sebanyak " + totalData;
             %>

@@ -44,14 +44,17 @@
             </div>
 
             <div id="content-right" style="text-align: left">
-                <%                    
+                <%
                     int staffID = Integer.parseInt(session.getAttribute("username").toString());
                     Session sesStaff = HibernateUtil.getSessionFactory().openSession();
                     List<Staff> listStaff = sesStaff.createQuery("from Staff where staffId=" + staffID + "").list();
                     Staff staff = listStaff.get(0);
                 %>
-                <h4>Your Account</h4>
+                <h4 style="margin-left: 130px;">Your Account</h4>
+
                 <pre>
+                <img src="../../resources/img/people.jpg" style="width: 100px; height: 80px;"/>
+                <br/>
                 NIK     : <%= staff.getStaffId()%>
                 Nama    : <%= staff.getStaffName()%>
                 Jabatan : <%= staff.getJobs().getJobName()%>

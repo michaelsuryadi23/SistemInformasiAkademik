@@ -16,7 +16,7 @@
         <title>Mata Kuliah - Sistem Informasi Akademik</title>
         <link rel="stylesheet" type="text/css" href="../../resources/style/home.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/home2.css"/>
-        <link rel="stylesheet" type="text/css" href="../../resources/style/style.css"/>
+        <link rel="stylesheet" type="text/css" href="../../resources/style/matkul.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/fixedMenu_style2.css"/>
 
         <script src="../../resources/js/jquery-1.7.2.min.js"></script>
@@ -36,12 +36,12 @@
             <jsp:include page="filter.jsp" />
             <jsp:include page="privilage.jsp" />
 
-            <table style="margin-left: 50px; width: 900px; margin-top: 10px;" border="1">
+            <table style="margin-left: 50px; width: 900px; margin-top: 10px;">
                 <thead style="background-color: black; color: white;border: 1px dotted black">
                 <th>Matkul ID</th>
                 <th>Matkul Name</th>
-                <th>Bobot SKS</th>
                 <th>Matkul Type</th>
+                <th>Opsi</th>
                 </thead>
                 <%
                     int noHlm;
@@ -56,7 +56,7 @@
                         int hlm = Integer.parseInt(request.getParameter("page"));
                         int startId = ((hlm - 1) * 15) + 10000;
                         noHlm = hlm;
-                        Query q = sess2.createQuery("from Matkul where matkul_id>" + startId);
+                        Query q = sess2.createQuery("from Matkul where matkulId>" + startId);
                         q.setMaxResults(15);
                         listMatkul = q.list();
                     }
@@ -71,7 +71,7 @@
                             listMatkul = sess.createQuery("from Matkul where matkulId=" + keyword).list();
                         } else if (filterBy == 2) {
                                 Session sess = HibernateUtil.getSessionFactory().openSession();
-                                listMatkul = sess.createQuery("from Matkul where matkulname="+ keyword).list();
+                                listMatkul = sess.createQuery("from Matkul where matkulName="+ keyword).list();
                            //     listMatkul = sess.createQuery("from Matkul where department.departmentId='" + keyword + "'").list();
                             } else{
                                 Session sess = HibernateUtil.getSessionFactory().openSession();
@@ -84,12 +84,11 @@
                     for (Matkul o : listMatkul) {
                 %>
                 <tr>
-                    <td><%= o.getMatkulId() %></td>
-                    <td><%= o.getMatkulName() %> </td>
-                    <td><%= o.getBobotSks() %></td>
-                    <td><%= o.getMatkulType().getMatkulType() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getMatkulId() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getMatkulName() %> </td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getMatkulType().getTypeName() %></td>
                     
-                    <td><a href="update.jsp?univId=<%= o.getMatkulId() %>">Update</a></td>
+                    <td style="border-bottom: 1px dotted black;"><a href="update.jsp?univId=<%= o.getMatkulId() %>">Update</a></td>
                 </tr>
                 <%
                     }
@@ -106,7 +105,7 @@
             <% %>
             <p style="text-align: left; margin-left: 50px;">Page : </p>
             <%
-                    int jmlHlm = totalData / 15;
+                    int jmlHlm = totalData / 20;
                     for (int i = 1; i <= (jmlHlm + 1); i++) {
                         if (i == noHlm) {
                             out.println("<p style='text-align:left;margin-left: 50px;'><b>" + i + "| </b></p>");

@@ -33,11 +33,11 @@
         <jsp:include page="../header.jsp"/>
         <div id="content">
             <jsp:include page="../sidemenu.jsp" />
-            <h2 style="text-align: center; margin-left: 20px;">List Badan Hukum</h2>
+            <h2 style="text-align: center; margin-left: 20px;">List Period</h2>
             <jsp:include page="filter.jsp" />
             <jsp:include page="privilage.jsp" />
 
-            <table style="margin-left: 50px; width: 900px; margin-top: 10px;" border="1">
+            <table style="margin-top: 20px; margin-bottom: 100px;">
                 <thead style="background-color: black; color: white;border: 1px dotted black">
                 <th>Period Year</th>
                 <th>Period Description</th>
@@ -51,6 +51,7 @@
                 <th>Finish Payment 2</th>
                 <th>Start Semester</th>
                 <th>Finish Semester</th>
+                <th>Opsi</th>
                 </thead>
                 <%
                     int noHlm;
@@ -77,7 +78,7 @@
 
                         if (filterBy == 1) {
                             Session sess = HibernateUtil.getSessionFactory().openSession();
-                            listPeriod = sess.createQuery("from Periods where periodYear=" + keyword).list();
+                            listPeriod = sess.createQuery("from Periods where year=" + keyword).list();
                         } 
                             
                         
@@ -88,19 +89,19 @@
                     for (Periods o : listPeriod) {
                 %>
                 <tr>
-                    <td><%= o.getPeriodYear() %></td>
-                    <td><%= o.getPeriodDescription() %></td>
-                    <td><%= o.getStartFrs().toString() %></td>
-                    <td><%= o.getStartPrs().toString() %></td>
-                    <td><%= o.getStartPayment1().toString() %></td>
-                    <td><%= o.getStartPayment2().toString() %></td>
-                    <td><%= o.getFinishFrs().toString() %></td>
-                    <td><%= o.getFinishPrs().toString() %></td>
-                    <td><%= o.getFinishPayment1().toString() %></td>
-                    <td><%= o.getFinishPayment2().toString() %></td>
-                    <td><%= o.getStartSemester().toString() %></td>
-                    <td><%= o.getFinishSemester().toString() %></td>
-                    <td><a href="update.jsp?period=<%= o.getPeriodYear() %>">Update</a></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getYear()%></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getPeriodDescription() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStartFrs().toString() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStartPrs().toString() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStartPayment1().toString() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStartPayment2().toString() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getFinishFrs().toString() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getFinishPrs().toString() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getFinishPayment1().toString() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getFinishPayment2().toString() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStartSemester().toString() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getFinishSemester().toString() %></td>
+                    <td style="border-bottom: 1px dotted black;"><a href="update.jsp?period=<%= o.getPeriodYear() %>">Update</a></td>
                 </tr>
                 <%
                     }

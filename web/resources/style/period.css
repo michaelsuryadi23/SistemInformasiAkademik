@@ -1,0 +1,16 @@
+/* 
+    Document   : period
+    Created on : Apr 26, 2013, 8:16:27 PM
+    Author     : Michael
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#content{
+    height: 700px;
+}
+

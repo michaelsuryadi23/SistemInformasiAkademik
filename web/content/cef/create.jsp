@@ -62,19 +62,21 @@
                     <%
                         if (request.getParameter("period") != null) {
                     %>
-                    <table style="margin-left: 70px; " border="1">
+                    <table style="margin-left: 80px; margin-top: 20px; width: 500px; " >
+                        <thead style="background-color: black; color: white; ">
                         <th>Matakuliah</th>
                         <th>Saran</th>
                         <th> </th>
+                    </thead>
                         <%
                             int period = Integer.parseInt(request.getParameter("period"));
                             List<TakeMatkulPeriod> listMatkul = ses.createQuery("from TakeMatkulPeriod where students.studentId = " + nim + " and periods.periodYear= " + period).list();
                             for (TakeMatkulPeriod t : listMatkul) {
                         %>
                         <tr>
-                            <td><%= t.getMatkul().getMatkulName()%></td>
-                            <td><%= t.getMatkulCef()%></td>
-                            <td><a href="update.jsp?matkul=<%= t.getMatkul().getMatkulId()%>&&nmatkul=<%= t.getMatkul().getMatkulName()%>"/>Update</td>
+                            <td style="border-bottom: 1px dotted black;"><%= t.getMatkul().getMatkulName()%></td>
+                            <td style="border-bottom: 1px dotted black;"><% if(t.getMatkulCef()==null) {out.print("Belum Ada");}else{out.print(t.getMatkulCef());} %></td>
+                            <td style="border-bottom: 1px dotted black;"><a href="update.jsp?matkul=<%= t.getMatkul().getMatkulId()%>&&nmatkul=<%= t.getMatkul().getMatkulName()%>"/>Update</td>
                         </tr>
                         <%
                             }

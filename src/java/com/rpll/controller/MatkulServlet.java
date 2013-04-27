@@ -48,7 +48,7 @@ public class MatkulServlet extends HttpServlet {
         try {
             int mode = Integer.parseInt(request.getParameter("mode"));
             
-            if(mode==1){
+            if(mode==1 || mode==2){
                 int matkulID = Integer.parseInt(request.getParameter("matkulID"));
                 String matkulName = request.getParameter("matkulName");
                 int matkulType = Integer.parseInt(request.getParameter("matkulType"));

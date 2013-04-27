@@ -34,6 +34,7 @@
             <jsp:include page="../sidemenu.jsp" />
             <h2 style="text-align: center; margin-left: 20px;">Ganti Password</h2>
             <%
+                if (!session.getAttribute("jabatan").toString().equals(" ") && session.getAttribute("jabatan") != null) {
                 int nim = Integer.parseInt(session.getAttribute("username").toString());
                 Session sess = HibernateUtil.getSessionFactory().openSession();
                 List<Students> student = sess.createQuery("From Students where studentId="+nim).list();
@@ -79,6 +80,8 @@
         <div id="footer" style="background-color: black; height: 70px; width: 1000px; margin: auto; text-align: center;">
             <p style=" color: white; padding-top: 20px;">Copyright 2013 RPLL Kelompok 3</p>
         </div>
-
+        <%
+                }
+                    %>
     </body>
 </html>

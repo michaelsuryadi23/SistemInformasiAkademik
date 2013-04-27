@@ -17,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="../../resources/style/home.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/home2.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/style.css"/>
+        <link rel="stylesheet" type="text/css" href="../../resources/style/badanhukum.css"/>
         <link rel="stylesheet" type="text/css" href="../../resources/style/fixedMenu_style2.css"/>
 
         <script src="../../resources/js/jquery-1.7.2.min.js"></script>

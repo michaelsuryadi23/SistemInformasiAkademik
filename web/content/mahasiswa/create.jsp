@@ -33,7 +33,7 @@
             </div>
 
             <div id="content-mid">
-                <h2 style="text-align: center; margin-left: 20px;">Update Data Mahasiswa</h2>
+                <h2 style="text-align: center; margin-left: 20px;">Input Data Mahasiswa</h2>
                 
                 <table style="margin-left: 200px;">
                     <tr>

@@ -54,7 +54,7 @@
                                     int nim = Integer.parseInt(session.getAttribute("username").toString());
                                     List<TakeMatkulPeriod> listMatkul = ses.createQuery("from TakeMatkulPeriod where students.studentId=" + nim + " and matkul.matkulId=" + Integer.parseInt(request.getParameter("matkul").toString())).list();
                                 %>
-                                <textarea name="saran" style="width:200px; height: 200px;"><%= listMatkul.get(0).getMatkulCef() %></textarea>
+                                <textarea name="saran" style="width:200px; height: 200px;"><% if(listMatkul.get(0).getMatkulCef()==null) {out.print("");}else{out.print(listMatkul.get(0).getMatkulCef());} %></textarea>
                             </td>
                         </tr>
                         <tr>

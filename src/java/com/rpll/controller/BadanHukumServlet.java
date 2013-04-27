@@ -24,7 +24,7 @@ import org.hibernate.Session;
  *
  * @author Michael
  */
-@WebServlet(name = "EditBadanHukumServlet", urlPatterns = {"/EditBadanHukumServlet"})
+@WebServlet(name = "EditBadanHukumServlet", urlPatterns = {"/BadanHukumServlet"})
 public class BadanHukumServlet extends HttpServlet {
 
     /**
@@ -45,7 +45,6 @@ public class BadanHukumServlet extends HttpServlet {
             int mode = Integer.parseInt(request.getParameter("mode"));
             
             if(mode==1 || mode==2){
-                int univId = Integer.parseInt(request.getParameter("univId"));
                 String univName = request.getParameter("univName");
                 String univAddress = request.getParameter("univAddress");
                 String univTelp = request.getParameter("univTelp");
@@ -53,11 +52,10 @@ public class BadanHukumServlet extends HttpServlet {
                 String univHomepage = request.getParameter("univHomepage");
                 int noAkreditasi = Integer.parseInt(request.getParameter("univNoAkreditasi"));
                 String akreditasi = request.getParameter("univAkreditasi");
-                String foundDate = request.getParameter("univFoundD");
+                String foundDate = request.getParameter("univFound");
                 String rector = request.getParameter("univRector");
                 
                 University univ = new University();
-                univ.setUnivId(univId);
                 univ.setUnivName(univName);
                 univ.setUnivAddress(univAddress);
                 univ.setUnivTelp(univTelp);
@@ -80,12 +78,14 @@ public class BadanHukumServlet extends HttpServlet {
                     sess.close();
                 }
                 else { //buat yg update
+                    int univId = Integer.parseInt(request.getParameter("univId"));
+                    univ.setUnivId(univId);
                     sess.beginTransaction();
                     sess.update(univ);
                     sess.getTransaction().commit();
                     sess.close();
                 }
-                
+                response.sendRedirect("content/badanhukum/list.jsp");
             }
             
            

@@ -30,7 +30,7 @@
     <body>
         <jsp:include page="../header.jsp"/>
         <div id="content">
-            <%-- <jsp:include page="../sidemenu.jsp" /> Blom ada buat Dosen --%>
+            <jsp:include page="../sidemenu.jsp" />
             <div id="content-left">
             </div>
 

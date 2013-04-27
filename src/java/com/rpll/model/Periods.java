@@ -1,5 +1,5 @@
 package com.rpll.model;
-// Generated Apr 15, 2013 2:00:19 PM by Hibernate Tools 3.2.1.GA
+// Generated Apr 26, 2013 8:19:43 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -25,6 +25,7 @@ public class Periods  implements java.io.Serializable {
      private Date startSemester;
      private Date finishSemester;
      private int status;
+     private int year;
      private Set<TeachPeriod> teachPeriods = new HashSet<TeachPeriod>(0);
      private Set<Marks> markses = new HashSet<Marks>(0);
      private Set<TakeMatkulPeriod> takeMatkulPeriods = new HashSet<TakeMatkulPeriod>(0);
@@ -36,7 +37,7 @@ public class Periods  implements java.io.Serializable {
     }
 
 	
-    public Periods(String periodDescription, Date startFrs, Date startPrs, Date startPayment1, Date startPayment2, Date finishFrs, Date finishPrs, Date finishPayment1, Date finishPayment2, Date startSemester, Date finishSemester, int status) {
+    public Periods(String periodDescription, Date startFrs, Date startPrs, Date startPayment1, Date startPayment2, Date finishFrs, Date finishPrs, Date finishPayment1, Date finishPayment2, Date startSemester, Date finishSemester, int status, int year) {
         this.periodDescription = periodDescription;
         this.startFrs = startFrs;
         this.startPrs = startPrs;
@@ -49,8 +50,9 @@ public class Periods  implements java.io.Serializable {
         this.startSemester = startSemester;
         this.finishSemester = finishSemester;
         this.status = status;
+        this.year = year;
     }
-    public Periods(String periodDescription, Date startFrs, Date startPrs, Date startPayment1, Date startPayment2, Date finishFrs, Date finishPrs, Date finishPayment1, Date finishPayment2, Date startSemester, Date finishSemester, int status, Set<TeachPeriod> teachPeriods, Set<Marks> markses, Set<TakeMatkulPeriod> takeMatkulPeriods, Set<ClassSession> classSessions, Set<Bobot> bobots, Set<Absences> absenceses) {
+    public Periods(String periodDescription, Date startFrs, Date startPrs, Date startPayment1, Date startPayment2, Date finishFrs, Date finishPrs, Date finishPayment1, Date finishPayment2, Date startSemester, Date finishSemester, int status, int year, Set<TeachPeriod> teachPeriods, Set<Marks> markses, Set<TakeMatkulPeriod> takeMatkulPeriods, Set<ClassSession> classSessions, Set<Bobot> bobots, Set<Absences> absenceses) {
        this.periodDescription = periodDescription;
        this.startFrs = startFrs;
        this.startPrs = startPrs;
@@ -63,6 +65,7 @@ public class Periods  implements java.io.Serializable {
        this.startSemester = startSemester;
        this.finishSemester = finishSemester;
        this.status = status;
+       this.year = year;
        this.teachPeriods = teachPeriods;
        this.markses = markses;
        this.takeMatkulPeriods = takeMatkulPeriods;
@@ -161,6 +164,13 @@ public class Periods  implements java.io.Serializable {
     
     public void setStatus(int status) {
         this.status = status;
+    }
+    public int getYear() {
+        return this.year;
+    }
+    
+    public void setYear(int year) {
+        this.year = year;
     }
     public Set<TeachPeriod> getTeachPeriods() {
         return this.teachPeriods;

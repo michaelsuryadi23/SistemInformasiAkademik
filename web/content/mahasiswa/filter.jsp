@@ -7,16 +7,11 @@
         <fieldset>
             <p>Filter By : </p>
             <select name="filter">
-                <option value="1">Announcements ID</option>
+                <option value="1">NIM</option>
                 <option value="2">Department ID</option>
             </select>
             <input type="text" name="keyword" />
-            <input type="submit" value="Process"/>
             
-        
-    </form>
-    <form action="create.jsp">
-        <input type="submit" value="Add"/>
-    </form>
     </fieldset>
+    </form>
 </div>

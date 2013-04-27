@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 15, 2013 2:00:21 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Apr 26, 2013 8:19:45 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.rpll.model.Periods" table="periods" catalog="sia">
         <id name="periodYear" type="java.lang.Integer">
@@ -43,6 +43,9 @@
         </property>
         <property name="status" type="int">
             <column name="status" not-null="true" />
+        </property>
+        <property name="year" type="int">
+            <column name="year" not-null="true" />
         </property>
         <set name="teachPeriods" inverse="true">
             <key>

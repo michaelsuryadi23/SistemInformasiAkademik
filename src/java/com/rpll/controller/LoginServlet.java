@@ -63,8 +63,16 @@ public class LoginServlet extends HttpServlet {
                         response.sendRedirect("content/home/homestudent.jsp");
                     }
                     else {
-                        List<Lectures> listLecture = session2.createQuery("from Lectures where lectureId="+username+" and lecturePass="+pass).list();
-                        
+                        List<Lectures> listLecture = session2.createQuery("from Lectures where lectureId="+username+" and lecturePass='"+pass+"'").list();
+                            if (listLecture.size() > 0) {
+                            HttpSession sess = request.getSession();
+                            sess.setAttribute("username", listLecture.get(0).getLectureId());
+                            sess.setAttribute("jabatan", "dosen");
+                            response.sendRedirect("content/home/homedosen.jsp");
+                        }
+                            else {
+                                response.sendRedirect("index.jsp?error=1");
+                            }
                     }
                 }
             }

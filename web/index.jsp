@@ -18,6 +18,7 @@
     </head>
 
     <body>
+       
         <jsp:include page="content/header.jsp"/>
         <div id="content">
             <div id="content-left">
@@ -26,6 +27,21 @@
             <div id="content-mid">
                 <div id="content-mid-center" style="text-align: center; width: 300px; height: 300px; margin: auto; margin-top: 50px;">
                     <h2 style="text-align: center; margin-left: 20px;">Login to System</h2>
+                    <%
+                        if (request.getParameter("error") != null) {
+                    %>
+                    <div style="background-color: red; color: white;">Invalid Username or Password</div>
+                    <%                        }
+                        else{
+                            if(request.getParameter("logout")!=null) {
+                                session.setAttribute("username", " ");
+                                session.setAttribute("jabatan", " ");
+                                %>
+                                <div style="background-color: yellow; color: black;">You've Logged Out</div>
+                            <%
+                                }
+                        }
+                    %>
                     <fieldset>
                         <form name='f' action="LoginServlet?loginattempt=1" method='POST'>
                             <table style="text-align: center; width: 320px;">

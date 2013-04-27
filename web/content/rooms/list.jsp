@@ -36,7 +36,7 @@
             <jsp:include page="filter.jsp" />
             <jsp:include page="privilage.jsp" />
 
-            <table style="margin-left: 50px; width: 900px; margin-top: 30px;" border="1">
+            <table style="margin-left: 50px; width: 900px; margin-bottom: 50px; margin-top: 30px;">
                 <thead style="background-color: black; color: white;border: 1px dotted black">
                 <th>Room ID</th>
                 <th>Room type</th>
@@ -89,10 +89,10 @@
                     for (Rooms o : listRooms) {
                 %>
                 <tr>
-                    <td><%= o.getRoomId()%></td>
-                    <td><%= o.getRoomType()%></td>
-                    <td><%= o.getRoomLocation()%></td>
-                    <td><a href="update.jsp?roomId=<%= o.getRoomId()%>">Update</a></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getRoomId()%></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getRoomType()%></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getRoomLocation()%></td>
+                    <td style="border-bottom: 1px dotted black;"><a href="update.jsp?roomId=<%= o.getRoomId()%>">Update</a></td>
                 </tr>
                 <%
                     }

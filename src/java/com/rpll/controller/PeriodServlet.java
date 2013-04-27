@@ -56,7 +56,7 @@ public class PeriodServlet extends HttpServlet {
                 String finishSmstr = request.getParameter("finishSmstr");
                 
                 Periods period = new Periods();
-                period.setPeriodYear(periodYear);
+                period.setYear(periodYear);
                 period.setPeriodDescription(periodDes);
                                
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

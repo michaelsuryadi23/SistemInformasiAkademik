@@ -50,6 +50,7 @@
                             List<Matkul> listMatkul = sess.createQuery("From Matkul").list();
                             List<Department> dept = sess.createQuery("From Department where departmentId="+deptId).list();
                         %>
+                        <input type="hidden" name="deptId" value="<%= deptId %>"/>
                         <select name="matkul">
                             <option value="0">--Pilih Matkul--</option>
                             <%

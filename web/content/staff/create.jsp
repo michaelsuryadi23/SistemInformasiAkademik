@@ -38,10 +38,6 @@
                 <form action="CreateStaffServlet" method="GET">
                     <table style="margin-left: 180px;">
                         <tr>
-                            <td>ID Staff :</td>
-                            <td><input type="text" name="idStaff"/></td>
-                        </tr>
-                        <tr>
                             <td>Nama Staff : </td>
                             <td><input type="text" name="nameStaff"/></td>
                         </tr>

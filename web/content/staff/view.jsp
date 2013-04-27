@@ -38,7 +38,7 @@
            
                 <h2 style="text-align: center; margin-left: 20px;">View Data Staff</h2>
                 <jsp:include page="filter.jsp" />
-                <table style="margin-left: 250px; width: 500px; margin-top: 20px;" border="1">
+                <table style="margin-left: 150px; width: 700px; margin-top: 30px;">
                     <thead style="background-color: black; color: white;border: 1px dotted black">
                         <th>NIK</th>
                         <th>Nama</th>
@@ -86,11 +86,11 @@
                     for(Staff o :listStaff){
                 %>
                 <tr>
-                    <td><%= o.getStaffId()%></td>
-                    <td><%= o.getStaffName() %></td>
-                    <td><%= o.getStaffAddress() %></td>
-                    <td><%= o.getStaffTelp() %></td>
-                    <td><a href="findstaff.jsp?nik=<%= o.getStaffId() %>">Update</a></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStaffId()%></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStaffName() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStaffAddress() %></td>
+                    <td style="border-bottom: 1px dotted black;"><%= o.getStaffTelp() %></td>
+                    <td style="border-bottom: 1px dotted black;"><a href="findstaff.jsp?nik=<%= o.getStaffId() %>">Update</a></td>
                 </tr>
                 <%
                     }
@@ -121,9 +121,7 @@
 
         </div>
 
-        <div id="footer" style="background-color: black; height: 70px; width: 1000px; margin: auto; text-align: center;">
-
-        </div>
+<jsp:include page="../footer.jsp"/>
 
     </body>
 </html>

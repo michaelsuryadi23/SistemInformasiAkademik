@@ -3,14 +3,13 @@
 %>
 
 <div class="menu">
-    <ul>
+    <ul> 
         <li>
             <a href="../home/home.jsp">Home</a>
         </li>
         <li>
             <a href="#">Mahasiswa<span class="arrow"></span></a>
             <ul>
-                <li><a href="../mahasiswa/update.jsp">Edit Identitas Mahasiswa</a></li>
                 <li><a href="../mahasiswa/list.jsp">View List Data Mahasiswa</a></li>
                 <li><a href="../mahasiswa/create.jsp">Input Data Mahasiswa Baru</a></li>
             </ul>
@@ -18,7 +17,6 @@
         <li>
             <a href="#">Staffs<span class="arrow"></span></a>
             <ul>
-                <li><a href="../staff/findstaff.jsp">Edit Identitas Staff</a></li>
                 <li><a href="../staff/view.jsp">View List Data Staff</a></li>
                 <li><a href="../staff/create.jsp">Input Data Staff Baru</a></li>
             </ul>
@@ -26,7 +24,6 @@
         <li>
             <a href="#">Dosen<span class="arrow"></span></a>
             <ul>
-                <li><a href="../dosen/update.jsp">Edit Identitas Dosen</a></li>
                 <li><a href="../dosen/list.jsp">View List Data Dosen</a></li>
                 <li><a href="../dosen/create.jsp">Input Data Dosen Baru</a></li>
             </ul>
@@ -38,20 +35,17 @@
                 <%
                     if (session.getAttribute("jabatan") != "keuangan") {
                 %>
-                <li><a href="../jadwalkuliah/edit.jsp">Edit Penjadwalan Kuliah</a></li>
                 <li><a href="../assigndosen/kurikulum.jsp">Assign Dosen Matakuliah</a></li>
                 <li><a href="../bagikelas/edit.jsp">Edit Pembagian Kelas Mahasiswa</a></li>
                 <li><a href="../kurikulum/kurikulum.jsp">Edit Kurikulum Departemen</a></li>
                 <li><a href="../pengumuman/list.jsp">Input Pengumuman</a></li>
-                <li><a href="../angkatan/list.jsp">Input Data Angkatan</a></li>
+                <li><a href="../matkul/list.jsp">Input Master Data Matkul</a></li>
                 <li><a href="../rooms/list.jsp">Data Rooms</a></li>
                 
 
                 <%                    }
                 %>
-                <li><a href="../pengumuman/edit.jsp">Input dan Edit Pengumuman</a></li>
-                <li><a href="../transkrip/view1.jsp">View dan Cetak Transkrip 1 Mahasiswa</a></li>                
-                <li><a href="../transkrip/view2.jsp">View dan Cetak Transkrip 2 Mahasiswa</a></li>                
+                
             </ul>
         </li>
         <li>
@@ -69,7 +63,7 @@
             </ul>
         </li>
         <li>
-            <a href="#">Sign Out</a>
+            <a href="../../index.jsp?logout=true">Sign Out</a>
         </li>
 
     </ul>
@@ -82,7 +76,7 @@
 <div class="menu">
     <ul>
         <li>
-            <a href="../home/home.jsp">Home</a>
+            <a href="../home/homestudent.jsp">Home</a>
         </li>
         <li>
             <a href="../profil/view.jsp">Edit Profil</a>
@@ -91,9 +85,10 @@
         <li>
             <a href="#">Akademik<span class="arrow"></span></a>
             <ul>
-                <li><a href="../staff/findstaff.jsp">Input KRS</a></li>
+                <li><a href="../krs/inputkrs.jsp">Input Kartu Rencana Studi</a></li>
+                <li><a href="../krs/inputcetakkrs.jsp">View dan Cetak Kartu Rencana Studi</a></li>
                 <li><a href="../staff/view.jsp">Input PRS</a></li>
-                <li><a href="../staff/create.jsp">Input CEF Matakuliah</a></li>
+                <li><a href="../cef/create.jsp">Input CEF Matakuliah</a></li>
                 <li><a href="../staff/create.jsp">Input Kotak Saran</a></li>
             </ul>
         </li>
@@ -114,7 +109,7 @@
             </ul>
         </li>
         <li>
-            <a href="#">Sign Out</a>
+            <a href="../../index.jsp?logout=1">Sign Out</a>
         </li>
     </ul>
 </div>
@@ -148,17 +143,25 @@
             </ul>
         </li>
         <li>
-            <a href="#">Sign Out</a>
+            <a href="../../index.jsp?logout=1">Sign Out</a>
         </li>
     </ul>
 <%                                }
     else {
-        if (session.getAttribute("jabatan").equals("lecture")) 
+        if (session.getAttribute("jabatan").equals("dosen")) 
         {
             %>
+            <div class="menu">
             <ul>
         <li>
-            <a href="../home/home.jsp">Home</a>
+            <a href="../home/homedosen.jsp">Home</a>
+        </li>
+        <li>
+            <a href="#">Perkuliahan<span class="arrow"></span></a>
+            <ul>
+                <li><a href="../staff/findstaff.jsp">Mulai Perkuliahan</a></li>
+                <li><a href="../staff/view.jsp">Edit Absensi Matakuliah</a></li>
+            </ul>
         </li>
         <li>
             <a href="#">Akademik<span class="arrow"></span></a>
@@ -176,9 +179,10 @@
             </ul>
         </li>
         <li>
-            <a href="#">Sign Out</a>
+            <a href="../../index.jsp?stat=1">Sign Out</a>
         </li>
     </ul>
+            </div>
             <%
         }
     }
