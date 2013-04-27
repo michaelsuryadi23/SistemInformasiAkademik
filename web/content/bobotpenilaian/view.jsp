@@ -4,6 +4,8 @@
     Author     : Michael
 --%>
 
+<%@page import="com.rpll.model.Periods"%>
+<%@page import="com.rpll.model.Bobot"%>
 <%@page import="com.rpll.model.TeachPeriod"%>
 <%@page import="com.rpll.model.MatkulDept"%>
 <%@page import="com.rpll.model.MatkulMandatory"%>
@@ -41,24 +43,72 @@
         <div id="content">
             <jsp:include page="../sidemenu.jsp" />
             <h2 style="text-align: center; margin-left: 20px;">Edit Bobot Penilaian</h2>
-            <div id="insertDiv">
-                <form action="../../KurikulumServlet" method="get">
-                    <fieldset>
-                        <% 
-                            int id = Integer.parseInt(session.getAttribute("username").toString());
-                            Session sess = HibernateUtil.getSessionFactory().openSession();
-                            List<TeachPeriod> listTeach = sess.createQuery("from TeachPeriod where id.lectureId="+id).list();
-                        %>
-                        Pilih Matakuliah :
-                        
-                    </fieldset>
-                </form>
-                        <h3 style="text-align: center; margin-left: 20px;">List Matkul Departement</h3>
-                        
-                        
-            </div>
 
-
+            <% 
+                int id = Integer.parseInt(session.getAttribute("username").toString());
+                Session sess = HibernateUtil.getSessionFactory().openSession();
+                Periods idPeriod = (Periods) sess.createQuery("from Periods where status=1").list().get(0);
+                List<TeachPeriod> listTeach = sess.createQuery("from TeachPeriod where id.lectureId="+id+" and id.periodId="+idPeriod.getPeriodYear()).list();
+            %>
+            <form action="view.jsp?mode=1" method="post">
+            Pilih Matakuliah : 
+            <select name="matkul">
+                <% for(TeachPeriod t : listTeach){
+                    %>
+                    <option value="<%= t.getMatkul().getMatkulId() %>"><%= t.getMatkul().getMatkulId() %>-<%= t.getMatkul().getMatkulName() %></option>
+                    <%
+                }
+                %>
+            </select>
+            <br/>
+            <input type="submit" value="Proses"/>
+            </form>
+            
+            <%
+                if(request.getParameter("mode")!=null){
+                    Session sess2 = HibernateUtil.getSessionFactory().openSession();
+                    int matkulId = Integer.parseInt(request.getParameter("matkul"));
+                    List<Bobot> listBobot = sess2.createQuery("from Bobot where id.matkulId="+matkulId+" and id.periodId="+idPeriod.getPeriodYear()).list();
+                
+            %>
+                
+                <h2 style="text-align: center; margin-left: 20px;">Bobot Penilaian</h2>
+                
+                <table>
+                    <tr>
+                        <td>Bobot Nilai 1 : </td>
+                        <td><input type="text" name="nilai1" value="<%= listBobot.get(0).getNilai1()*100 %>"/>%</td>
+                    </tr>
+                    <tr>
+                        <td>Bobot Nilai 2 : </td>
+                        <td><input type="text" name="nilai2" value="<%= listBobot.get(0).getNilai2()*100 %>"/>%</td>
+                    </tr>
+                    <tr>
+                        <td>Bobot Nilai 3 : </td>
+                        <td><input type="text" name="nilai3" value="<%= listBobot.get(0).getNilai3()*100 %>"/>%</td>
+                    </tr>
+                    <tr>
+                        <td>Bobot Nilai 4 : </td>
+                        <td><input type="text" name="nilai4" value="<%= listBobot.get(0).getNilai4()*100 %>"/>%</td>
+                    </tr>
+                    <tr>
+                        <td>Bobot Nilai 5 : </td>
+                        <td><input type="text" name="nilai5" value="<%= listBobot.get(0).getNilai5()*100 %>"/>%</td>
+                    </tr>
+                    <tr>
+                        <td>Bobot Nilai UAS : </td>
+                        <td><input type="text" name="uas" value="<%= listBobot.get(0).getUas()*100%>"/>%</td>
+                    </tr>
+                    
+                </table>
+                
+                
+                
+                <%
+                }
+                %>
+                
+                
 
         </div>
 

@@ -110,7 +110,6 @@
                 </thead>
                 
                 <% for(Marks mrk2 : marks2) {
-                    
                     %>
                     <tr>
                         <td><%= no %></td>

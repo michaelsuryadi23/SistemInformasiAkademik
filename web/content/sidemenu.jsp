@@ -166,8 +166,8 @@
         <li>
             <a href="#">Akademik<span class="arrow"></span></a>
             <ul>
-                <li><a href="../staff/findstaff.jsp">Input Bobot Penilaian</a></li>
-                <li><a href="../staff/view.jsp">Input Nilai Ujian Reguler</a></li>
+                <li><a href="../bobotpenilaian/view.jsp">Input Bobot Penilaian</a></li>
+                <li><a href="../penilaian/view.jsp">Input Nilai Ujian Reguler</a></li>
                 <li><a href="../staff/create.jsp">View CEF dari Mahasiswa</a></li>
             </ul>
         </li>

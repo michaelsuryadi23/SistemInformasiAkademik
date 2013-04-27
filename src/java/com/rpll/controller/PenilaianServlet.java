@@ -4,14 +4,11 @@
  */
 package com.rpll.controller;
 
-import com.rpll.model.Department;
 import com.rpll.model.Marks;
 import com.rpll.model.MarksId;
 import com.rpll.model.Matkul;
 import com.rpll.model.Periods;
 import com.rpll.model.Students;
-import com.rpll.model.TakeMatkulPeriod;
-import com.rpll.model.TakeMatkulPeriodId;
 import com.rpll.util.HibernateUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,8 +23,8 @@ import org.hibernate.Session;
  *
  * @author Michael
  */
-@WebServlet(name = "KrsServlet", urlPatterns = {"/KrsServlet"})
-public class KrsServlet extends HttpServlet {
+@WebServlet(name = "PenilaianServlet", urlPatterns = {"/PenilaianServlet"})
+public class PenilaianServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -45,57 +42,51 @@ public class KrsServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             int counter = Integer.parseInt(request.getParameter("counter"));
-            out.println(counter);
             Session sess = HibernateUtil.getSessionFactory().openSession();
-            int studentId = Integer.parseInt(request.getParameter("studentId"));
-            int periodId = Integer.parseInt(request.getParameter("period"));
-            int deptId = Integer.parseInt(request.getParameter("deptId"));
             
-            
-            for (int i = 0; i < counter; i++) {
-                int matkulId = Integer.parseInt(request.getParameter("idMatkul" + i));
-                if (request.getParameter("cek"+i)!=null) {
-                    System.out.println("msk");
-                    Matkul matkul = (Matkul) sess.createQuery("from Matkul where matkulId=" + matkulId).list().get(0);
-                    Students student = (Students) sess.createQuery("from Students where studentId=" + studentId).list().get(0);
-                    Periods period = (Periods) sess.createQuery("from Periods where periodYear=" + periodId).list().get(0);
-                    Department dept = (Department) sess.createQuery("from Department where departmentId=" + deptId).list().get(0);
-
-                    TakeMatkulPeriodId id = new TakeMatkulPeriodId();
-                    id.setMatkulId(matkulId);
-                    id.setPeriodId(periodId);
-                    id.setStudentId(studentId);
-                    
-                    Marks marks = new Marks();
-                    MarksId mark = new MarksId();
-                    mark.setMatkulId(matkulId);
-                    mark.setPeriodId(periodId);
-                    mark.setStudentId(studentId);
-                    
-                    marks.setId(mark);
-                    marks.setMatkul(matkul);
-                    
-                    
-                    TakeMatkulPeriod take = new TakeMatkulPeriod();
-                    take.setId(id);
-                    take.setMatkul(matkul);
-                    take.setStudents(student);
-                    take.setMatkulCef("");
-                    take.setPeriods(period);
-
-                    sess.beginTransaction();
-                    sess.save(take);
-                    sess.getTransaction().commit();
-                    
-                    sess.beginTransaction();
-                    sess.save(marks);
-                    sess.getTransaction().commit();
-                    
-                }
+                int matkulId = Integer.parseInt(request.getParameter("matkul"));
+            for(int i = 1; i <counter; i++) {
+                int studentId = Integer.parseInt(request.getParameter("idstu-"+i));
+                int periodId = Integer.parseInt(request.getParameter("period"));
+                
+                double nilai1 = Double.parseDouble(request.getParameter("nilai1-"+i));
+                double nilai2 = Double.parseDouble(request.getParameter("nilai2-"+i));
+                double nilai3 = Double.parseDouble(request.getParameter("nilai3-"+i));
+                double nilai4 = Double.parseDouble(request.getParameter("nilai4-"+i));
+                double nilai5 = Double.parseDouble(request.getParameter("nilai5-"+i));
+                double uas = Double.parseDouble(request.getParameter("uas-"+i));
+                
+                Matkul matkul = (Matkul) sess.createQuery("From Matkul where matkulId="+matkulId).list().get(0);
+                Students stu = (Students) sess.createQuery("From Students where studentId="+studentId).list().get(0);
+                Periods per = (Periods) sess.createQuery("from Periods where periodYear="+periodId).list().get(0);
+                
+                Marks mark = new Marks();
+                MarksId markId = new MarksId();
+                markId.setMatkulId(matkulId);
+                markId.setStudentId(studentId);
+                markId.setPeriodId(periodId);
+                
+                mark.setId(markId);
+                mark.setMatkul(matkul);
+                mark.setStudents(stu);
+                mark.setNilai1(nilai1);
+                mark.setNilai2(nilai2);
+                mark.setNilai3(nilai3);
+                mark.setNilai4(nilai4);
+                mark.setNilai5(nilai5);
+                mark.setUas(uas);
+                
+                sess.beginTransaction();
+                sess.update(mark);
+                sess.getTransaction().commit();
+                
+                
+                
+                
             }
-            response.sendRedirect("content/krs/view.jsp?period=" + periodId + "&nim=" + studentId + "&dept=" + deptId);
-
-        } finally {
+            response.sendRedirect("content/penilaian/view.jsp?mode=1&matkul="+matkulId+"&stat=1");
+            
+        } finally {            
             out.close();
         }
     }
